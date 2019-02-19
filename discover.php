@@ -20,6 +20,6 @@
     <link rel="icon" href="img/icon.png" type="image/x-icon" />
 </head>
 <body>
-    
+
 </body>
 </html>
