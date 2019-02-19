@@ -27,64 +27,66 @@
                 <h1>Proyección de ahorros</h1>
                 <h2>Datos de su servicio actual</h2>
 
-                <form class="mt-5">
+                <form class="mt-5" method="POST" action="continuar.php">
                             <div class="form-row">
                                 <div class="form-group col">
                                     <label for="titular">Titular del servicio</label>
-                                    <input type="text" class="form-control" id="titular" placeholder="Titular del servicio">
+                                    <input type="text" class="form-control" id="titular" name="titular" placeholder="Titular del servicio">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="estado">Estado</label>
-                                    <select id="estado" class="form-control">
+                                    <select id="estado" name="estado" class="form-control">
                                         <option selected>Elegir estado...</option>
                                         <option>Sonora</option>
-                                        <option>Sinaloa</option>
+                                        <!--<option>Sinaloa</option>
                                         <option>Chihuahua</option>
                                         <option>Baja California</option>
                                         <option>Baja California Sur</option>
-                                        <option>Durango</option>
+                                        <option>Durango</option>-->
                                     </select>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label for="municipio">Municipio</label>
-                                    <input type="text" class="form-control" id="municipio" placeholder="Municipio">
+                                    <label for="municipio" >Municipio</label>
+                                    <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Municipio">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="codigoPostal">Código Postal</label>
-                                    <input type="number" class="form-control" id="codigoPostal" placeholder="Código Postal">
+                                    <input type="text" class="form-control" id="codigoPostal" 
+                                    name="codigoPostal" placeholder="Código Postal" pattern="\d{4,5}$"
+                                    title="Introduzca un código postal correcto">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="tarifa">Tarifa</label>
-                                    <select id="tarifa" class="form-control">
+                                    <select id="tarifa" name="tarifa" class="form-control">
                                         <option selected>Elegir tarifa...</option>
                                         <optgroup label="Hogar">
-                                            <option>1</option>
-                                            <option>1A</option>
-                                            <option>1B</option>
-                                            <option>1C</option>
-                                            <option>1D</option>
-                                            <option>1E</option>
-                                            <option>1F</option>
+                                            <option value="1">1</option>
+                                            <option value="1A">1A</option>
+                                            <option value="1B">1B</option>
+                                            <option value="1C">1C</option>
+                                            <option value="1D">1D</option>
+                                            <option value="1E">1E</option>
+                                            <option value="1F">1F</option>
                                         </optgroup>
                                         <optgroup label="Negocio">
-                                            <option>PDBT</option>
+                                            <option value="PDBT">PDBT</option>
                                         </optgroup>
                                         <optgroup label="Industria">
-                                            <option>GDMTO</option>
+                                            <option value="GDMTO">GDMTO</option>
                                         </optgroup>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="servicio">No. Servicio</label>
-                                    <input type="tel" class="form-control" id="servicio" placeholder="No. Servicio">
+                                    <input type="tel" class="form-control" id="servicio" name="servicio" placeholder="No. Servicio">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="recibo">Período del recibo actual</label>
-                                    <select id="recibo" class="form-control" onchange="seleccionarMes()">
+                                    <select id="recibo" name="recibo" class="form-control" onchange="seleccionarMes()">
                                         <option selected>Elegir mes del recibo...</option>
                                         <option value="Enero">ENERO</option>
                                         <option value="Febrero">FEBRERO</option>
@@ -103,7 +105,7 @@
 
                             </div>
                             <div align="center">
-                                <button type="submit" class="btn btn-primary">Calcular</button>
+                                <button type="submit" class="btn btn-primary">Continuar</button>
                             </div>
                         </form>
             </div>

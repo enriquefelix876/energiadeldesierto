@@ -2140,15 +2140,6 @@ pre code {
 	border: 0
 }
 
-.form-control:focus {
-	color: #495057;
-	background-color: #fff;
-	border-color: #fbc2b3;
-	outline: 0;
-	-webkit-box-shadow: 0 0 0 .2rem rgba(244, 98, 58, .25);
-	box-shadow: 0 0 0 .2rem rgba(244, 98, 58, .25)
-}
-
 .form-control::-webkit-input-placeholder {
 	color: #6c757d;
 	opacity: 1
@@ -2733,13 +2724,6 @@ textarea.form-control.is-invalid {
 	text-decoration: none
 }
 
-.btn.focus,
-.btn:focus {
-	outline: 0;
-	-webkit-box-shadow: 0 0 0 .2rem rgba(244, 98, 58, .25);
-	box-shadow: 0 0 0 .2rem rgba(244, 98, 58, .25)
-}
-
 .btn.disabled,
 .btn:disabled {
 	opacity: .65
@@ -2762,12 +2746,6 @@ fieldset:disabled a.btn {
 	border-color: #017129
 }
 
-.btn-primary.focus,
-.btn-primary:focus {
-	-webkit-box-shadow: 0 0 0 .2rem rgba(246, 122, 88, .5);
-	box-shadow: 0 0 0 .2rem rgba(246, 122, 88, .5)
-}
-
 .btn-primary.disabled,
 .btn-primary:disabled {
 	color: #fff;
@@ -2783,12 +2761,7 @@ fieldset:disabled a.btn {
 	border-color: #017129
 }
 
-.btn-primary:not(:disabled):not(.disabled).active:focus,
-.btn-primary:not(:disabled):not(.disabled):active:focus,
-.show>.btn-primary.dropdown-toggle:focus {
-	-webkit-box-shadow: 0 0 0 .2rem rgba(246, 122, 88, .5);
-	box-shadow: 0 0 0 .2rem rgba(246, 122, 88, .5)
-}
+
 
 .btn-secondary {
 	color: #fff;
