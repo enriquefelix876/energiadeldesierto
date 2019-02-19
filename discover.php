@@ -20,9 +20,6 @@
     <link rel="icon" href="img/icon.png" type="image/x-icon" />
 </head>
 <body>
-
-<<<<<<< HEAD
-=======
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-7 border">
@@ -110,8 +107,6 @@
                         </form>
             </div>
         </div>
-    </div>
-    
->>>>>>> ce4f9c23886fc99dece7811b0a6f2c8da5bfc3f4
+    </div>  
 </body>
 </html>
