@@ -20,99 +20,12 @@
 	</head>
 	<body>
 
-<<<<<<< HEAD
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-7 border">
 					<h1>Proyección de ahorros</h1>
 					<h2>Datos de su servicio actual</h2>
-					<form class="mt-5">
-						<div class="form-row">
-							<div class="form-group col">
-								<label for="titular">Titular del servicio</label>
-								<input type="text" class="form-control" id="titular" placeholder="Titular del servicio">
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<label for="estado">Estado</label>
-								<select id="estado" class="form-control">
-									<option>Elegir estado...</option>
-									<option>Sonora</option>
-									<option disabled>Sinaloa</option>
-									<option disabled>Chihuahua</option>
-									<option disabled>Baja California</option>
-									<option disabled>Baja California Sur</option>
-									<option disabled>Durango</option>
-								</select>
-							</div>
-							<div class="form-group col-md-5">
-								<label for="municipio">Municipio</label>
-								<input type="text" class="form-control" id="municipio" placeholder="Municipio">
-							</div>
-							<div class="form-group col-md-3">
-								<label for="codigoPostal">Código Postal</label>
-								<input type="text" class="form-control" id="codigoPostal" 
-									placeholder="Código Postal" pattern="^\d{4,5}$" 
-									tittle="Introduzca un codigo postal correcto">
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<label for="tarifa">Tarifa</label>
-								<select id="tarifa" class="form-control">
-									<option selected>Elegir tarifa...</option>
-									<optgroup label="Hogar">
-										<option>1</option>
-										<option>1A</option>
-										<option>1B</option>
-										<option>1C</option>
-										<option>1D</option>
-										<option>1E</option>
-										<option>1F</option>
-									</optgroup>
-									<optgroup label="Negocio">
-										<option>PDBT</option>
-									</optgroup>
-									<optgroup label="Industria">
-										<option>GDMTO</option>
-									</optgroup>
-								</select>
-							</div>
-							<div class="form-group col-md-4">
-								<label for="servicio">No. Servicio</label>
-								<input type="tel" class="form-control" id="servicio" placeholder="No. Servicio">
-							</div>
-							<div class="form-group col-md-4">
-								<label for="recibo">Período del recibo actual</label>
-								<select id="recibo" class="form-control" onchange="seleccionarMes()">
-									<option selected>Elegir mes del recibo...</option>
-									<option value="Enero">ENERO</option>
-									<option value="Febrero">FEBRERO</option>
-									<option value="Marzo" disabled>MARZO</option>
-									<option value="Abril" disabled>ABRIL</option>
-									<option value="Mayo" disabled>MAYO</option>
-									<option value="Junio" disabled>JUNIO</option>
-									<option value="Julio" disabled>JULIO</option>
-									<option value="Agosto" disabled>AGOSTO</option>
-									<option value="Septiembre" disabled>SEPTIEMBRE</option>
-									<option value="Octubre" disabled>OCTUBRE</option>
-									<option value="Noviembre" disabled>NOVIEMBRE</option>
-									<option value="Diciembre" disabled>DICIEMBRE</option>
-								</select>
-							</div>
-						</div>
-						<div align="center">
-							<button type="submit" class="btn btn-primary">Calcular</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
-
-=======
+				
                 <form class="mt-5" method="POST" action="continuar.php">
                             <div class="form-row">
                                 <div class="form-group col">
@@ -199,4 +112,3 @@
     </div>  
 </body>
 </html>
->>>>>>> b4ae4cb6a66bea2c0074d0d1b9ddfb991c0f4c4c
