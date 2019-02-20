@@ -2,7 +2,7 @@
 	$titular= $_POST['titular'];
 	$estado= $_POST['estado'];
 	$municipio= $_POST['municipio'];
-	$codigoPostal= $_POST['codigoPostal'];
+	$codigopostal= $_POST['codigoPostal'];
 	$tarifa= $_POST['tarifa'];
 	$servicio= $_POST['servicio'];
 	$mes= $_POST['recibo'];
@@ -42,7 +42,7 @@
                     <span class="font-weight-bold"><?php echo $titular ?>
                         </span class="font-weight-bold"><br>
                     <span class="font-weight-bold">NO. DE SERVICIO:</span><?php echo " ". $servicio ?><br>
-                    <?php echo $municipio.", ".$estado .". ". $codigoPostal?><br>
+                    <?php echo $municipio.", ".$estado .". ". $codigopostal?><br>
                     <span class="font-weight-bold">TARIFA:</span><?php echo " ". $tarifa ?><br>
                 </div>
             </div>
@@ -60,109 +60,118 @@
 				</div>
             </div>
             
-            <form action="">
-			<div class="row justify-content-center mt-2">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes1txt" id="mes1txt">DIC 2017</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes1" id="mes1" class="form-control">
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes2txt" id="mes2txt">ENE 2018</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes2" id="mes2" class="form-control">
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes3txt" id="mes3txt">FEB 2018</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes3" id="mes3" class="form-control">
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes4txt" id="mes4txt">MAR 2018</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes4" id="mes4" class="form-control">
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes5txt" id="mes5txt">ABR 2018</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes5" id="mes5" class="form-control">
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes6txt" id="mes6txt">MAY 2018</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes6" id="mes6" class="form-control">
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes7txt" id="mes7txt">JUN 2018</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes7" id="mes7" class="form-control">
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes8txt" id="mes8txt">JUL 2018</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes8" id="mes8" class="form-control">
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes9txt" id="mes9txt">AGO 2018</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes9" id="mes9" class="form-control">
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes10txt" id="mes10txt">SEP 2017</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes10" id="mes10" class="form-control">
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes11txt" id="mes11txt">OCT 2017</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes12" id="mes12" class="form-control">
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<span name="mes12txt" id="mes12txt">NOV 2017</span>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-					<input type="text" name="mes12" id="mes12" class="form-control">
-                </div> 
-            </div>
-            <div class="row justify-content-center mt-4 mb-4">
-                <div class="col text-center">
-                    <button type="submit" class="btn btn-primary">Continuar</button>
-                </div>
-            </div>
+            <form action="cotizacion.php" method="POST">
 
+				<!-- Atributos ocultos en el formulario -->
+				<input type="text" name="titular" id="titular" hidden value="<?php echo $titular ?>">
+				<input type="text" name="estado" id="estado" hidden value="<?php echo $estado ?>"> 
+				<input type="text" name="municipio" id="municipio" hidden value="<?php echo $municipio ?>">
+				<input type="text" name="codigopostal" id="codigopostal" hidden value="<?php echo $codigopostal ?>">
+				<input type="text" name="tarifa" id="tarifa" hidden value="<?php echo $tarifa ?>">
+				<input type="text" name="servicio" id="servicio" hidden value="<?php echo $servicio ?>">
+				<input type="text" name="mes" id="mes" hidden value="<?php echo $mes ?>">
+
+				<div class="row justify-content-center mt-2">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes1txt" id="mes1txt">DIC 2017</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes1" id="mes1" class="form-control">
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes2txt" id="mes2txt">ENE 2018</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes2" id="mes2" class="form-control">
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes3txt" id="mes3txt">FEB 2018</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes3" id="mes3" class="form-control">
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes4txt" id="mes4txt">MAR 2018</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes4" id="mes4" class="form-control">
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes5txt" id="mes5txt">ABR 2018</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes5" id="mes5" class="form-control">
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes6txt" id="mes6txt">MAY 2018</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes6" id="mes6" class="form-control">
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes7txt" id="mes7txt">JUN 2018</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes7" id="mes7" class="form-control">
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes8txt" id="mes8txt">JUL 2018</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes8" id="mes8" class="form-control">
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes9txt" id="mes9txt">AGO 2018</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes9" id="mes9" class="form-control">
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes10txt" id="mes10txt">SEP 2017</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes10" id="mes10" class="form-control">
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes11txt" id="mes11txt">OCT 2017</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes11" id="mes11" class="form-control">
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<span name="mes12txt" id="mes12txt">NOV 2017</span>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
+						<input type="text" name="mes12" id="mes12" class="form-control">
+					</div> 
+				</div>
+				<div class="row justify-content-center mt-4 mb-4">
+					<div class="col text-center">
+						<button type="submit" class="btn btn-primary">Continuar</button>
+					</div>
+				</div>
             </form>
 		</div>
     </body>
