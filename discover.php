@@ -20,42 +20,47 @@
 	</head>
 	<body>
 
+		<div class="container mt-5 mb-4">
+			<div class="row justify-content-center">
+				<div class="col-md-7">
+					<h1>Proyección de ahorros</h1>
+					<h2>Datos de su servicio actual</h2>
                 <form class="mt-5" method="POST" action="continuar.php">
                             <div class="form-row">
                                 <div class="form-group col">
                                     <label for="titular">Titular del servicio</label>
-                                    <input type="text" class="form-control" id="titular" name="titular" placeholder="Titular del servicio">
+                                    <input type="text" class="form-control" id="titular" name="titular" 
+                                    placeholder="Titular del servicio" pattern="[A-Za-z ]{5,40}" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="estado">Estado</label>
-                                    <select id="estado" name="estado" class="form-control">
-                                        <option selected>Elegir estado...</option>
+                                    <select id="estado" name="estado" class="form-control" required>
                                         <option>Sonora</option>
-                                        <!--<option>Sinaloa</option>
-                                        <option>Chihuahua</option>
-                                        <option>Baja California</option>
-                                        <option>Baja California Sur</option>
-                                        <option>Durango</option>-->
+                                        <option disabled>Sinaloa</option>
+                                        <option disabled>Chihuahua</option>
+                                        <option disabled>Baja California</option>
+                                        <option disabled>Baja California Sur</option>
+                                        <option disabled>Durango</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label for="municipio" >Municipio</label>
-                                    <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Municipio">
+                                    <label for="municipio">Municipio</label>
+                                    <input type="text" class="form-control" id="municipio" required 
+                                    name="municipio" placeholder="Municipio" pattern="[A-Za-z ]{5,40}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="codigoPostal">Código Postal</label>
                                     <input type="text" class="form-control" id="codigoPostal" 
                                     name="codigoPostal" placeholder="Código Postal" pattern="\d{4,5}$"
-                                    title="Introduzca un código postal correcto">
+                                    title="Introduzca un código postal correcto" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="tarifa">Tarifa</label>
-                                    <select id="tarifa" name="tarifa" class="form-control">
-                                        <option selected>Elegir tarifa...</option>
+                                    <select id="tarifa" name="tarifa" class="form-control" required>
                                         <optgroup label="Hogar">
                                             <option value="1">1</option>
                                             <option value="1A">1A</option>
@@ -75,15 +80,19 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="servicio">No. Servicio</label>
-                                    <input type="tel" class="form-control" id="servicio" name="servicio" placeholder="No. Servicio">
+                                    <input required type="tel" class="form-control" id="servicio" 
+                                    name="servicio" placeholder="No. Servicio" pattern="\d{12}$" 
+                                    tittle="El numero de servicio debe tener 12 caracteres numericos"
+                                    required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="recibo">Período del recibo actual</label>
-                                    <select id="recibo" name="recibo" class="form-control" onchange="seleccionarMes()">
-                                        <option selected>Elegir mes del recibo...</option>
+                                    <select id="recibo" name="recibo" class="form-control" 
+                                    required>
+                                        <option selected>Elegir mes...</option>
                                         <option value="Enero">ENERO</option>
                                         <option value="Febrero">FEBRERO</option>
-                                        <option value="Marzo" disabled>MARZO</option>
+                                        <option value="Marzo">MARZO</option>
                                         <option value="Abril" disabled>ABRIL</option>
                                         <option value="Mayo" disabled>MAYO</option>
                                         <option value="Junio" disabled>JUNIO</option>
