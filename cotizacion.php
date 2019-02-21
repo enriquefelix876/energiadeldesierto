@@ -5,19 +5,19 @@
         break;
     }
 
-   echo $totalEnero."<br>";
-   echo $totalFebrero."<br>";
-   echo $totalMarzo."<br>";
-   echo $totalAbril."<br>";
+   echo "Enero: ".$totalEnero."<br>";
+   echo "Febrero: ".$totalFebrero."<br>";
+   echo "Marzo: ".$totalMarzo."<br>";
+   echo "Abril: ".$totalAbril."<br>";
 
-   echo $totalMayo."<br>";
-   echo $totalJunio."<br>";
-   echo $totalJulio."<br>";
-   echo $totalAgosto."<br>";
-   echo $totalSeptiembre."<br>";
-   echo $totalOctubre."<br>";
+   echo "Mayo: ".$totalMayo."<br>";
+   echo "Junio: ".$totalJunio."<br>";
+   echo "Julio: ".$totalJulio."<br>";
+   echo "Agosto: ".$totalAgosto."<br>";
+   echo "Septiembre: ".$totalSeptiembre."<br>";
+   echo "Octubre: ".$totalOctubre."<br>";
    
-   echo $totalNoviembre."<br>";
-   echo $totalDiciembre."<br>";
+   echo "Noviembre: ".$totalNoviembre."<br>";
+   echo "Diciembre: ".$totalDiciembre."<br>";
 
 ?>
