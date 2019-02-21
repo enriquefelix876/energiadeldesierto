@@ -3,6 +3,21 @@
         case '1E':
             require_once('php/cotizar1E.php');
         break;
+
+        case '1':
+            require_once('php/cotizar1.php');
+        break;
+
+        case '1A':
+        require_once('php/cotizar1A.php');
+        break;
+
+        case '1B':
+        require_once('php/cotizar1B.php');
+        break;
+
+        default:
+        break;
     }
 
    echo "Enero: ".$totalEnero."<br>";
