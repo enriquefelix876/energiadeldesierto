@@ -32,7 +32,7 @@ $totalOctubre = 0;
 $totalNoviembre = 0;
 $totalDiciembre = 0;
 
-$inicioVerano = "Febrero";
+$inicioVerano = "Abril";
 
 //En caso de que el inicio de verano sea en Febrero
 if($inicioVerano=="Febrero"){
@@ -90,7 +90,6 @@ if($inicioVerano=="Febrero"){
 }
 
 
-
 //En caso de que el inicio de verano sea en Marzo
 if($inicioVerano=="Marzo"){
     //En caso de que el ultimo mes sea Enero del 2019
@@ -146,4 +145,115 @@ if($inicioVerano=="Marzo"){
     }
 }
 
+
+//En caso de que el inicio de verano sea en Marzo
+if($inicioVerano=="Abril"){
+    //En caso de que el ultimo mes sea Enero del 2019
+    if($mes=="Enero"){
+                      
+        $totalEnero = pagoMensualInvierno20181B($consumoPorMes['mes1']);
+        $totalFebrero = pagoMensualInvierno20181B($consumoPorMes['mes2']);
+        $totalMarzo = pagoMensualInvierno20181B($consumoPorMes['mes3']);
+        $totalAbril = pagoMensualVerano20181B($consumoPorMes['mes4']);
+        $totalMayo = pagoMensualVerano20181B($consumoPorMes['mes5']);
+        $totalJunio = pagoMensualVerano20181B($consumoPorMes['mes6']);
+        $totalJulio = pagoMensualVerano20181B($consumoPorMes['mes7']);
+        $totalAgosto = pagoMensualVerano20181B($consumoPorMes['mes8']);
+        $totalSeptiembre = pagoMensualVerano20181B($consumoPorMes['mes9']);
+        $totalOctubre = pagoMensualInvierno20181B($consumoPorMes['mes10']);
+        $totalNoviembre = pagoMensualInvierno20181B($consumoPorMes['mes11']);
+        $totalDiciembre = pagoMensualInvierno20181B($consumoPorMes['mes12']);
+    }
+
+    //En caso de que el ultimo mes sea Febrero del 2019
+    if($mes=="Febrero"){
+
+        $totalFebrero = pagoMensualInvierno20181B($consumoPorMes['mes1']);
+        $totalMarzo = pagoMensualVerano20181B($consumoPorMes['mes2']);
+        $totalAbril = pagoMensualVerano20181B($consumoPorMes['mes3']);
+        $totalMayo = pagoMensualVerano20181B($consumoPorMes['mes4']);
+        $totalJunio = pagoMensualVerano20181B($consumoPorMes['mes5']);
+        $totalJulio = pagoMensualVerano20181B($consumoPorMes['mes6']);
+        $totalAgosto = pagoMensualVerano20181B($consumoPorMes['mes7']);
+        $totalSeptiembre = pagoMensualInvierno20181B($consumoPorMes['mes8']);
+        $totalOctubre = pagoMensualInvierno20181B($consumoPorMes['mes9']);
+        $totalNoviembre = pagoMensualInvierno20181B($consumoPorMes['mes10']);
+        $totalDiciembre = pagoMensualInvierno20181B($consumoPorMes['mes11']);
+        $totalEnero = pagoMensualEnero20191B($consumoPorMes['mes12']);
+
+    }
+
+    //En caso de que el ultimo mes sea Marzo del 2019
+    if($mes=="Marzo"){
+
+        $totalMarzo = pagoMensualVerano20181B($consumoPorMes['mes1']);
+        $totalAbril = pagoMensualVerano20181B($consumoPorMes['mes2']);
+        $totalMayo = pagoMensualVerano20181B($consumoPorMes['mes3']);
+        $totalJunio = pagoMensualVerano20181B($consumoPorMes['mes4']);
+        $totalJulio = pagoMensualVerano20181B($consumoPorMes['mes5']);
+        $totalAgosto = pagoMensualVerano20181B($consumoPorMes['mes6']);
+        $totalSeptiembre = pagoMensualInvierno20181B($consumoPorMes['mes7']);
+        $totalOctubre = pagoMensualInvierno20181B($consumoPorMes['mes8']);
+        $totalNoviembre = pagoMensualInvierno20181B($consumoPorMes['mes9']);
+        $totalDiciembre = pagoMensualInvierno20181B($consumoPorMes['mes10']);
+        $totalEnero = pagoMensualEnero20191B($consumoPorMes['mes11']);
+        $totalFebrero = pagoMensualFebrero20191B($consumoPorMes['mes12']);
+    }
+}
+
+
+//En caso de que el inicio de verano sea Mayo
+if($inicioVerano=="Mayo"){
+    //En caso de que el ultimo mes sea Enero del 2019
+    if($mes=="Enero"){
+                      
+        $totalEnero = pagoMensualInvierno20181B($consumoPorMes['mes1']);
+        $totalFebrero = pagoMensualInvierno20181B($consumoPorMes['mes2']);
+        $totalMarzo = pagoMensualInvierno20181B($consumoPorMes['mes3']);
+        $totalAbril = pagoMensualInvierno20181B($consumoPorMes['mes4']);
+        $totalMayo = pagoMensualVerano20181B($consumoPorMes['mes5']);
+        $totalJunio = pagoMensualVerano20181B($consumoPorMes['mes6']);
+        $totalJulio = pagoMensualVerano20181B($consumoPorMes['mes7']);
+        $totalAgosto = pagoMensualVerano20181B($consumoPorMes['mes8']);
+        $totalSeptiembre = pagoMensualVerano20181B($consumoPorMes['mes9']);
+        $totalOctubre = pagoMensualVerano20181B($consumoPorMes['mes10']);
+        $totalNoviembre = pagoMensualInvierno20181B($consumoPorMes['mes11']);
+        $totalDiciembre = pagoMensualInvierno20181B($consumoPorMes['mes12']);
+    }
+
+    //En caso de que el ultimo mes sea Febrero del 2019
+    if($mes=="Febrero"){
+
+        $totalFebrero = pagoMensualInvierno20181B($consumoPorMes['mes1']);
+        $totalMarzo = pagoMensualInvierno20181B($consumoPorMes['mes2']);
+        $totalAbril = pagoMensualInvierno20181B($consumoPorMes['mes3']);
+        $totalMayo = pagoMensualVerano20181B($consumoPorMes['mes4']);
+        $totalJunio = pagoMensualVerano20181B($consumoPorMes['mes5']);
+        $totalJulio = pagoMensualVerano20181B($consumoPorMes['mes6']);
+        $totalAgosto = pagoMensualVerano20181B($consumoPorMes['mes7']);
+        $totalSeptiembre = pagoMensualVerano20181B($consumoPorMes['mes8']);
+        $totalOctubre = pagoMensualVerano20181B($consumoPorMes['mes9']);
+        $totalNoviembre = pagoMensualInvierno20181B($consumoPorMes['mes10']);
+        $totalDiciembre = pagoMensualInvierno20181B($consumoPorMes['mes11']);
+        $totalEnero = pagoMensualEnero20191B($consumoPorMes['mes12']);
+
+    }
+
+    //En caso de que el ultimo mes sea Marzo del 2019
+    if($mes=="Marzo"){
+
+        $totalMarzo = pagoMensualInvierno20181B($consumoPorMes['mes1']);
+        $totalAbril = pagoMensualInvierno20181B($consumoPorMes['mes2']);
+        $totalMayo = pagoMensualVerano20181B($consumoPorMes['mes3']);
+        $totalJunio = pagoMensualVerano20181B($consumoPorMes['mes4']);
+        $totalJulio = pagoMensualVerano20181B($consumoPorMes['mes5']);
+        $totalAgosto = pagoMensualVerano20181B($consumoPorMes['mes6']);
+        $totalSeptiembre = pagoMensualVerano20181B($consumoPorMes['mes7']);
+        $totalOctubre = pagoMensualVerano20181B($consumoPorMes['mes8']);
+        $totalNoviembre = pagoMensualInvierno20181B($consumoPorMes['mes9']);
+        $totalDiciembre = pagoMensualInvierno20181B($consumoPorMes['mes10']);
+        $totalEnero = pagoMensualEnero20191B($consumoPorMes['mes11']);
+        $totalFebrero = pagoMensualFebrero20191B($consumoPorMes['mes12']);
+    }
+}
 ?>

@@ -1,7 +1,7 @@
 <?php 
     switch ($_POST['tarifa']) {
         case '1E':
-            require_once('php/cotizar1E.php');
+            require_once('php/proyeccion1E.php');
         break;
 
         case '1':
@@ -20,19 +20,22 @@
         break;
     }
 
-   echo "Enero: ".$totalEnero."<br>";
-   echo "Febrero: ".$totalFebrero."<br>";
-   echo "Marzo: ".$totalMarzo."<br>";
-   echo "Abril: ".$totalAbril."<br>";
+    echo $totalDiciembre*1.16."<br>";
+    echo $totalEnero*1.16."<br>";
+    echo $totalFebrero*1.16."<br>";
+    echo $totalMarzo*1.16."<br>";
+    echo $totalAbril*1.16."<br>";
+    echo $totalMayo*1.16."<br>";
+    echo $totalJunio*1.16."<br>";
+    echo $totalJulio*1.16."<br>";
+    echo $totalAgosto*1.16."<br>";
+    echo $totalSeptiembre*1.16."<br>";
+    echo $totalOctubre*1.16."<br>";
+    echo $totalNoviembre*1.16."<br>";
 
-   echo "Mayo: ".$totalMayo."<br>";
-   echo "Junio: ".$totalJunio."<br>";
-   echo "Julio: ".$totalJulio."<br>";
-   echo "Agosto: ".$totalAgosto."<br>";
-   echo "Septiembre: ".$totalSeptiembre."<br>";
-   echo "Octubre: ".$totalOctubre."<br>";
-   
-   echo "Noviembre: ".$totalNoviembre."<br>";
-   echo "Diciembre: ".$totalDiciembre."<br>";
+    echo $consumoEnero['intermedioBajo']+$consumoFebrero['intermedioBajo']+$consumoMarzo['intermedioBajo']+
+    $consumoMayo['intermedioBajo']+$consumoJunio['intermedioBajo']+$consumoJulio['intermedioBajo']+
+    $consumoAgosto['intermedioBajo']+$consumoSeptiembre['intermedioBajo']+$consumoOctubre['intermedioBajo']+
+    $consumoNoviembre['intermedioBajo']+$consumoDiciembre['intermedioBajo']+$consumoAbril['intermedioBajo'];
 
 ?>
