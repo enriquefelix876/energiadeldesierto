@@ -104,7 +104,7 @@
                 $consumoSeptiembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes9'], 75, 125, 0.793, 0.956, 2.802);
                 $consumoOctubre = desgloseConsumoPorMesInvierno($consumoPorMes['mes10'], 75, 125, 0.793, 0.956, 2.802);
                 $consumoNoviembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-                $totalDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
+                $consumoDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
                 
             }
     
@@ -166,7 +166,7 @@
                 $consumoSeptiembre = desgloseConsumoPorMesVerano($consumoPorMes['mes9'], 175, 225, 200, 0.697, 0.822, 1.050, 2.802);
                 $consumoOctubre = desgloseConsumoPorMesInvierno($consumoPorMes['mes10'], 75, 125, 0.793, 0.956, 2.802);
                 $consumoNoviembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-                $totalDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
+                $consumoDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
                 
             }
 
@@ -228,7 +228,7 @@
                 $consumoSeptiembre = desgloseConsumoPorMesVerano($consumoPorMes['mes9'], 175, 225, 200, 0.697, 0.822, 1.050, 2.802);
                 $consumoOctubre = desgloseConsumoPorMesVerano($consumoPorMes['mes10'], 175, 225, 200, 0.697, 0.822, 1.050, 2.802);
                 $consumoNoviembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-                $totalDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
+                $consumoDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
                 
             }
 
@@ -290,7 +290,7 @@
                 $consumoSeptiembre = desgloseConsumoPorMesVerano($consumoPorMes['mes9'], 175, 225, 200, 0.697, 0.822, 1.050, 2.802);
                 $consumoOctubre = desgloseConsumoPorMesVerano($consumoPorMes['mes10'], 175, 225, 200, 0.697, 0.822, 1.050, 2.802);
                 $consumoNoviembre = desgloseConsumoPorMesVerano($consumoPorMes['mes11'], 175, 225, 200, 0.697, 0.822, 1.050, 2.802);
-                $totalDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
+                $consumoDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
                 
             }
 
