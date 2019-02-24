@@ -33,22 +33,17 @@
         break;
     }
 
-    echo $totalDiciembre."<br>";
-    echo $totalEnero."<br>";
-    echo $totalFebrero."<br>";
-    echo $totalMarzo."<br>";
-    echo $totalAbril."<br>";
-    echo $totalMayo."<br>";
-    echo $totalJunio."<br>";
-    echo $totalJulio."<br>";
-    echo $totalAgosto."<br>";
-    echo $totalSeptiembre."<br>";
-    echo $totalOctubre."<br>";
-    echo $totalNoviembre."<br><br>";
-
-    echo $consumoEnero['intermedioBajo']+$consumoFebrero['intermedioBajo']+$consumoMarzo['intermedioBajo']+
-    $consumoMayo['intermedioBajo']+$consumoJunio['intermedioBajo']+$consumoJulio['intermedioBajo']+
-    $consumoAgosto['intermedioBajo']+$consumoSeptiembre['intermedioBajo']+$consumoOctubre['intermedioBajo']+
-    $consumoNoviembre['intermedioBajo']+$consumoDiciembre['intermedioBajo']+$consumoAbril['intermedioBajo'];
+    echo "Enero: "; print_r($consumoEnero); echo "<br>";
+    echo "Febrero: "; print_r($consumoFebrero); echo "<br>";
+    echo "Marzo: "; print_r($consumoMarzo); echo "<br>";
+    echo "Abril: "; print_r($consumoAbril); echo "<br>";
+    echo "Mayo: "; print_r($consumoMayo); echo "<br>";
+    echo "Junio: "; print_r($consumoJunio); echo "<br>";
+    echo "Julio: "; print_r($consumoJulio); echo "<br>";
+    echo "Agosto: "; print_r($consumoAgosto); echo "<br>";
+    echo "Septiembre: "; print_r($consumoSeptiembre); echo "<br>";
+    echo "Octubre: "; print_r($consumoOctubre); echo "<br>";
+    echo "Noviembre: "; print_r($consumoNoviembre); echo "<br>";
+    echo "Diciembre: "; print_r($consumoDiciembre); echo "<br>";
 
 ?>

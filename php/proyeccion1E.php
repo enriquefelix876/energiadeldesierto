@@ -66,19 +66,6 @@
 
     );
 	
-	//Total a pagar por mes
-	$totalEnero = 0;
-	$totalFebrero = 0;
-	$totalMarzo = 0;
-	$totalAbril = 0;
-	$totalMayo = 0;
-	$totalJunio = 0;
-	$totalJulio = 0;
-	$totalAgosto = 0;
-	$totalSeptiembre = 0;
-	$totalOctubre = 0;
-	$totalNoviembre = 0;
-    $totalDiciembre = 0;
     
     $inicioVerano = "Mayo";
 
@@ -87,20 +74,6 @@
 
         //En caso de que el ultimo mes sea enero
         if($mes == "Enero"){
-
-            //Pago por mes
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes3'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualVerano($consumoPorMes['mes4'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAbril = pagoMensualVerano($consumoPorMes['mes5'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalMayo = pagoMensualVerano($consumoPorMes['mes6'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes8'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes9'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualInvierno($consumoPorMes['mes10'], 75, 125, 0.793, 0.956, 2.802);
-            $totalOctubre = pagoMensualInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-            $totalNoviembre = pagoMensualInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
 
             //Consumo por mes
             $consumoDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
@@ -118,20 +91,6 @@
         }
 
         if($mes == "Febrero"){
-
-            //Pago por mes
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualVerano($consumoPorMes['mes3'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAbril = pagoMensualVerano($consumoPorMes['mes4'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalMayo = pagoMensualVerano($consumoPorMes['mes5'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes6'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes8'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualInvierno($consumoPorMes['mes9'], 75, 125, 0.793, 0.956, 2.802);
-            $totalOctubre = pagoMensualInvierno($consumoPorMes['mes10'], 75, 125, 0.793, 0.956, 2.802);
-            $totalNoviembre = pagoMensualInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
 
             //Consumo por mes
             $consumoEnero = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
@@ -151,20 +110,6 @@
 
 
         if($mes == "Marzo"){
-
-            //Pago por mes
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualVerano($consumoPorMes['mes2'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAbril = pagoMensualVerano($consumoPorMes['mes3'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalMayo = pagoMensualVerano($consumoPorMes['mes4'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes5'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes6'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualInvierno($consumoPorMes['mes8'], 75, 125, 0.793, 0.956, 2.802);
-            $totalOctubre = pagoMensualInvierno($consumoPorMes['mes9'], 75, 125, 0.793, 0.956, 2.802);
-            $totalNoviembre = pagoMensualInvierno($consumoPorMes['mes10'], 75, 125, 0.793, 0.956, 2.802);
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes12'], 75, 125, 0.796, 0.960, 2.813);
 
             //Consumo por mes
             $consumoFebrero = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
@@ -192,20 +137,6 @@
         //En caso de que el ultimo mes sea enero
         if($mes == "Enero"){
 
-            //Pago por mes
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes3'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualInvierno($consumoPorMes['mes4'], 75, 125, 0.793, 0.956, 2.802);
-            $totalAbril = pagoMensualVerano($consumoPorMes['mes5'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalMayo = pagoMensualVerano($consumoPorMes['mes6'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes8'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes9'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualVerano($consumoPorMes['mes10'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalOctubre = pagoMensualInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-            $totalNoviembre = pagoMensualInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
-
             //Consumo por mes
             $consumoDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
             $consumoEnero = desgloseConsumoPorMesInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
@@ -222,20 +153,6 @@
         }
 
         if($mes == "Febrero"){
-
-            //Pago por mes
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualInvierno($consumoPorMes['mes3'], 75, 125, 0.793, 0.956, 2.802);
-            $totalAbril = pagoMensualVerano($consumoPorMes['mes4'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalMayo = pagoMensualVerano($consumoPorMes['mes5'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes6'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes8'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualVerano($consumoPorMes['mes9'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalOctubre = pagoMensualInvierno($consumoPorMes['mes10'], 75, 125, 0.793, 0.956, 2.802);
-            $totalNoviembre = pagoMensualInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
 
             //Consumo por mes
             $consumoEnero = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
@@ -255,20 +172,6 @@
 
 
         if($mes == "Marzo"){
-
-            //Pago por mes
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
-            $totalAbril = pagoMensualVerano($consumoPorMes['mes3'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalMayo = pagoMensualVerano($consumoPorMes['mes4'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes5'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes6'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualVerano($consumoPorMes['mes8'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalOctubre = pagoMensualInvierno($consumoPorMes['mes9'], 75, 125, 0.793, 0.956, 2.802);
-            $totalNoviembre = pagoMensualInvierno($consumoPorMes['mes10'], 75, 125, 0.793, 0.956, 2.802);
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes12'], 75, 125, 0.796, 0.960, 2.813);
 
             //Consumo por mes
             $consumoFebrero = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
@@ -296,20 +199,6 @@
         //En caso de que el ultimo mes sea enero
         if($mes == "Enero"){
 
-            //Pago por mes
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes3'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualInvierno($consumoPorMes['mes4'], 75, 125, 0.793, 0.956, 2.802);
-            $totalAbril = pagoMensualInvierno($consumoPorMes['mes5'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMayo = pagoMensualVerano($consumoPorMes['mes6'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes8'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes9'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualVerano($consumoPorMes['mes10'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalOctubre = pagoMensualVerano($consumoPorMes['mes11'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalNoviembre = pagoMensualInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
-
             //Consumo por mes
             $consumoDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
             $consumoEnero = desgloseConsumoPorMesInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
@@ -326,20 +215,6 @@
         }
 
         if($mes == "Febrero"){
-
-            //Pago por mes
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualInvierno($consumoPorMes['mes3'], 75, 125, 0.793, 0.956, 2.802);
-            $totalAbril = pagoMensualInvierno($consumoPorMes['mes4'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMayo = pagoMensualVerano($consumoPorMes['mes5'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes6'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes8'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualVerano($consumoPorMes['mes9'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalOctubre = pagoMensualVerano($consumoPorMes['mes10'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalNoviembre = pagoMensualInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
 
             //Consumo por mes
             $consumoEnero = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
@@ -359,20 +234,6 @@
 
 
         if($mes == "Marzo"){
-
-            //Pago por mes
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
-            $totalAbril = pagoMensualInvierno($consumoPorMes['mes3'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMayo = pagoMensualVerano($consumoPorMes['mes4'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes5'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes6'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualVerano($consumoPorMes['mes8'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalOctubre = pagoMensualVerano($consumoPorMes['mes9'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalNoviembre = pagoMensualInvierno($consumoPorMes['mes10'], 75, 125, 0.793, 0.956, 2.802);
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes12'], 75, 125, 0.796, 0.960, 2.813);
 
             //Consumo por mes
             $consumoFebrero = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
@@ -399,20 +260,6 @@
         //En caso de que el ultimo mes sea enero
         if($mes == "Enero"){
 
-            //Pago por mes
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes3'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualInvierno($consumoPorMes['mes4'], 75, 125, 0.793, 0.956, 2.802);
-            $totalAbril = pagoMensualInvierno($consumoPorMes['mes5'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMayo = pagoMensualInvierno($consumoPorMes['mes6'], 75, 125, 0.793, 0.956, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes8'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes9'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualVerano($consumoPorMes['mes10'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalOctubre = pagoMensualVerano($consumoPorMes['mes11'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalNoviembre = pagoMensualVerano($consumoPorMes['mes12'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-
             //Consumo por mes
             $consumoDiciembre = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
             $consumoEnero = desgloseConsumoPorMesInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
@@ -429,20 +276,6 @@
         }
 
         if($mes == "Febrero"){
-
-            //Pago por mes
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualInvierno($consumoPorMes['mes3'], 75, 125, 0.793, 0.956, 2.802);
-            $totalAbril = pagoMensualInvierno($consumoPorMes['mes4'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMayo = pagoMensualInvierno($consumoPorMes['mes5'], 75, 125, 0.793, 0.956, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes6'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes8'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualVerano($consumoPorMes['mes9'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalOctubre = pagoMensualVerano($consumoPorMes['mes10'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalNoviembre = pagoMensualVerano($consumoPorMes['mes11'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes12'], 75, 125, 0.793, 0.956, 2.802);
 
             //Consumo por mes
             $consumoEnero = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
@@ -462,20 +295,6 @@
 
 
         if($mes == "Marzo"){
-
-            //Pago por mes
-            $totalFebrero = pagoMensualInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMarzo = pagoMensualInvierno($consumoPorMes['mes2'], 75, 125, 0.793, 0.956, 2.802);
-            $totalAbril = pagoMensualInvierno($consumoPorMes['mes3'], 75, 125, 0.793, 0.956, 2.802);
-            $totalMayo = pagoMensualInvierno($consumoPorMes['mes4'], 75, 125, 0.793, 0.956, 2.802);
-            $totalJunio = pagoMensualVerano($consumoPorMes['mes5'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalJulio = pagoMensualVerano($consumoPorMes['mes6'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalAgosto = pagoMensualVerano($consumoPorMes['mes7'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalSeptiembre = pagoMensualVerano($consumoPorMes['mes8'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalOctubre = pagoMensualVerano($consumoPorMes['mes9'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalNoviembre = pagoMensualVerano($consumoPorMes['mes10'], 300, 450, 150, 0.583, 0.726, 0.948, 2.802);
-            $totalDiciembre = pagoMensualInvierno($consumoPorMes['mes11'], 75, 125, 0.793, 0.956, 2.802);
-            $totalEnero = pagoMensualInvierno($consumoPorMes['mes12'], 75, 125, 0.796, 0.960, 2.813);
 
             //Consumo por mes
             $consumoFebrero = desgloseConsumoPorMesInvierno($consumoPorMes['mes1'], 75, 125, 0.793, 0.956, 2.802);
