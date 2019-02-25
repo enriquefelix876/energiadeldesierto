@@ -80,7 +80,7 @@
         break;
 
         case '1C':
-        require_once('php/proyeccion1ECuturo.php');
+        require_once('php/proyeccion1CFuturo.php');
         break;
 
         case '1D':
