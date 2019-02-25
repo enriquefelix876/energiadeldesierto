@@ -152,4 +152,82 @@
 
     }
 
+
+    /**
+     * Metodo para obtener la produccion promedio 
+    */
+    function obtenerPromedioDiario($consumoEnero, $consumoFebrero, $consumoMarzo, $consumoAbril, $consumoMayo, 
+    $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, $consumoOctubre, $consumoNoviembre, 
+    $consumoDiciembre){
+
+        $promedioDiario = 0;
+        $consumoIntermedioBajo = 0;
+        $consumoIntermedioAlto = 0;
+        $consumoExcedente = 0;
+
+        $consumoIntermedioBajo = $consumoEnero['intermedioBajo']+$consumoFebrero['intermedioBajo']+
+        $consumoMarzo['intermedioBajo']+$consumoAbril['intermedioBajo']+$consumoMayo['intermedioBajo']+
+        $consumoJunio['intermedioBajo']+$consumoJulio['intermedioBajo']+$consumoAgosto['intermedioBajo']+
+        $consumoSeptiembre['intermedioBajo']+$consumoOctubre['intermedioBajo']+$consumoNoviembre['intermedioBajo']+
+        $consumoDiciembre['intermedioBajo'];
+
+        $consumoIntermedioAlto = $consumoEnero['intermedioAlto']+$consumoFebrero['intermedioAlto']+
+        $consumoMarzo['intermedioAlto']+$consumoAbril['intermedioAlto']+$consumoMayo['intermedioAlto']+
+        $consumoJunio['intermedioAlto']+$consumoJulio['intermedioAlto']+$consumoAgosto['intermedioAlto']+
+        $consumoSeptiembre['intermedioAlto']+$consumoOctubre['intermedioAlto']+
+        $consumoNoviembre['intermedioAlto']+$consumoDiciembre['intermedioAlto'];
+
+        $consumoExcedente = $consumoEnero['excedente']+$consumoFebrero['excedente']+
+        $consumoMarzo['excedente']+$consumoAbril['excedente']+$consumoMayo['excedente']+
+        $consumoJunio['excedente']+$consumoJulio['excedente']+$consumoAgosto['excedente']+
+        $consumoSeptiembre['excedente']+$consumoOctubre['excedente']+
+        $consumoNoviembre['excedente']+$consumoDiciembre['excedente'];
+
+        $promedioDiario = ($consumoIntermedioBajo+$consumoIntermedioAlto+$consumoExcedente)/365;
+
+        return $promedioDiario;
+    }
+
+
+    /**
+     * Metodo para obtener un desglose del consumo por mes esperado
+    */
+    function consumoFuturo($consumoPorMes, $produccionMensual){
+
+        $consumoPorMesFuturo = array();
+
+        foreach ($consumoPorMes as $valor) {
+            
+            if ($valor < $produccionMensual) {
+                
+                $consumoPorMesFuturo[] = 0;
+
+            } else {
+                
+                $consumoPorMesFuturo[] = $valor-$produccionMensual;
+
+            }
+            
+        }
+
+        return $consumoPorMesFuturo;
+    }
+    
+
+    /*
+     *Metodo para obtener el total anual mas IVA
+    */
+    function obtenerTotalAnualAnterior($consumoEnero, $consumoFebrero, $consumoMarzo, $consumoAbril, 
+    $consumoMayo, $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, $consumoOctubre, 
+    $consumoNoviembre, $consumoDiciembre){
+
+    $total = ($consumoEnero['pago']*1.16)+($consumoFebrero['pago']*1.16)+($consumoMarzo['pago']*1.16)+
+    ($consumoAbril['pago']*1.16)+($consumoMayo['pago']*1.16)+($consumoJunio['pago']*1.16)+
+    ($consumoJulio['pago']*1.16)+($consumoAgosto['pago']*1.16)+($consumoSeptiembre['pago']*1.16)+
+    ($consumoOctubre['pago']*1.16)+($consumoNoviembre['pago']*1.16)+($consumoDiciembre['pago']*1.16);
+
+
+    return $total;
+    }
+
 ?>
