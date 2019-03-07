@@ -2,7 +2,7 @@
 	$titular= $_POST['titular'];
 	$estado= $_POST['estado'];
 	$municipio= $_POST['municipio'];
-	$codigopostal= $_POST['codigoPostal'];
+	$frecuencia_pago= $_POST['frecuencia_pago'];
 	$tarifa= $_POST['tarifa'];
 	$servicio= $_POST['servicio'];
 	$mes= $_POST['recibo'];
@@ -41,8 +41,9 @@
                 <div class="col-md-5 border datos rounded">
                     <span class="font-weight-bold"><?php echo $titular ?>
                         </span class="font-weight-bold"><br>
+					<span class="font-weight-bold">Frecuencia de pago: <?php echo $frecuencia_pago ?></span><br>
                     <span class="font-weight-bold">NO. DE SERVICIO:</span><?php echo " ". $servicio ?><br>
-                    <?php echo $municipio.", ".$estado .". ". $codigopostal?><br>
+                    <?php echo $municipio.", ".$estado?><br>
                     <span class="font-weight-bold">TARIFA:</span><?php echo " ". $tarifa ?><br>
                 </div>
             </div>
@@ -71,6 +72,9 @@
 				<input type="text" name="servicio" id="servicio" hidden value="<?php echo $servicio ?>">
 				<input type="text" name="mes" id="mes" hidden value="<?php echo $mes ?>">
 
+				<input type="text" name="frecuencia_pago" id="frecuencia_pago"  
+				hidden value="<?php echo $frecuencia_pago ?>">
+
 				<div class="row justify-content-center mt-2">
 					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
 						<span name="mes1txt" id="mes1txt">DIC 2017</span>
@@ -81,7 +85,7 @@
 				</div>
 				<div class="row justify-content-center">
 					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
-						<span name="mes2txt" id="mes2txt">ENE 2018</span>
+						<span name="mes" id="mes2txt">ENE 2018</span>
 					</div>
 					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">
 						<input type="text" name="mes2" id="mes2" class="form-control">
@@ -177,6 +181,6 @@
     </body>
     
     <script>
-        generarMeses("<?php echo $mes ?>");
+        generarMeses("<?php echo $mes ?>","<?php echo $frecuencia_pago ?>");
     </script>
 </html>

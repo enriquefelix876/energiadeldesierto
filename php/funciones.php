@@ -14,6 +14,12 @@
     function desgloseConsumoPorMesInvierno($consumoKWH, $rangoBasico, $rangoIntermedio, 
     $kwhBasico, $kwhIntermedio, $kwhExcedente){
 
+        //Se establece el consumo minimo en 25 kWh
+        if($consumoKWH<25){
+
+            $consumoKWH = 25;
+        }
+
         $desglosePorMes = array(
 
             "basico" => 0,
@@ -82,6 +88,12 @@
     $rangoIntermedioAlto, $kwhBasico, $kwhIntermedioBajo, 
     $kwhIntermedioAlto, $kwhExcedente){
 
+        //Se establece el consumo minimo en 25 kWh
+        if($consumoKWH<25){
+
+            $consumoKWH = 25;
+        }
+
         $desglosePorMes = array(
 
             "basico" => 0,
@@ -111,7 +123,7 @@
                 if($consumoKWH>$rangoIntermedioAlto){
 
                     //No se aplica el pago en el intermedio alto
-                    //$pagoMensual = $pagoMensual+$kwhIntermedioAlto*$rangoIntermedioAlto;
+                    $pagoMensual = $pagoMensual+$kwhIntermedioAlto*$rangoIntermedioAlto;
                     $consumoKWH = $consumoKWH-$rangoIntermedioAlto;
                     $desglosePorMes['intermedioAlto'] = $rangoIntermedioAlto;
 
@@ -127,7 +139,7 @@
                 }else{
 
                     //No se aplica el pago en el intermedio alto
-                    //$pagoMensual = $pagoMensual+$kwhIntermedioAlto*$consumoKWH;
+                    $pagoMensual = $pagoMensual+$kwhIntermedioAlto*$consumoKWH;
                     $desglosePorMes['intermedioAlto'] = $consumoKWH;
                 }
 
@@ -191,21 +203,50 @@
 
     /**
      * Metodo para obtener un desglose del consumo por mes esperado
+     * Retorna el desglose del consumo esperado
     */
     function consumoFuturo($consumoPorMes, $produccionMensual){
 
         $consumoPorMesFuturo = array();
+        $AFavor = 0;
+        $bolsaEnergia = 0;
 
         foreach ($consumoPorMes as $valor) {
-            
-            if ($valor < $produccionMensual) {
-                
+
+            if($valor < $produccionMensual){
+
                 $consumoPorMesFuturo[] = 0;
 
-            } else {
-                
-                $consumoPorMesFuturo[] = $valor-$produccionMensual;
+                //Valor temporal de produccion a favor del mes
+                $AFavor = $produccionMensual-$valor;
 
+                //Bolsa de energia acumulada
+                $bolsaEnergia += $AFavor;
+
+            }else{
+
+                //Consumo temporal de comparacion
+                $consumoTemporal = $valor-$produccionMensual;
+
+                //En caso de que el consumo temporal sea menor o igual a la bolsa de energia acumulada
+                if ($consumoTemporal<=$bolsaEnergia) {
+                    
+                    //El consumo del mes se iguala a 0
+                    $consumoPorMesFuturo[] = 0;
+
+                    //Se le resta el consumo temporal a la bolsa de energia acumulada
+                    $bolsaEnergia-=$consumoTemporal;
+
+                //En caso de que el consumo temporal sea mayor a la bolsa de energia acumulada
+                } else {
+                    
+                    //El consumo del mes sera el consumo temporal menos la bolsa de energia acumulada
+                    $consumoPorMesFuturo[] = $consumoTemporal-$bolsaEnergia;
+
+                    //Se igual la bolsa de energia a 0
+                    $bolsaEnergia = 0;
+                }
+                
             }
             
         }
@@ -228,6 +269,29 @@
 
 
     return $total;
+    }
+
+    function comprobarSiEsAFavor($consumoFuturo){
+
+        $AFavor = false;
+        $bandera = 0;
+
+        foreach ($consumoFuturo as $valor) {
+            
+            if ($valor == 0) {
+                
+                $bandera = $bandera + 1;
+            }
+
+        }
+
+        if($bandera>0){
+
+            $AFavor = true;
+
+        }
+
+        return $AFavor;
     }
 
 ?>

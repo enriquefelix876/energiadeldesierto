@@ -124,10 +124,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="codigoPostal">Código Postal</label>
-                                    <input type="text" class="form-control" id="codigoPostal" 
-                                    name="codigoPostal" placeholder="Código Postal" pattern="\d{4,5}$"
-                                    title="Introduzca un código postal correcto" required>
+                                    <label for="codigoPostal">Frecuencia de Pago</label>
+                                    <select name="frecuencia_pago" id="frecuencia_pago" class="form-control">
+                                        <option value="Mensual">Mensual</option>
+                                        <option value="Bimestral">Bimestral</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -159,22 +160,29 @@
                                     required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="recibo">Período del recibo actual</label>
+                                    <label for="recibo">Ultimo mes facturado</label>
                                     <select id="recibo" name="recibo" class="form-control" 
                                     required>
                                         <option selected>Elegir mes...</option>
-                                        <option value="Enero">ENERO</option>
-                                        <option value="Febrero">FEBRERO</option>
-                                        <option value="Marzo">MARZO</option>
-                                        <option value="Abril" disabled>ABRIL</option>
-                                        <option value="Mayo" disabled>MAYO</option>
-                                        <option value="Junio" disabled>JUNIO</option>
-                                        <option value="Julio" disabled>JULIO</option>
-                                        <option value="Agosto" disabled>AGOSTO</option>
-                                        <option value="Septiembre" disabled>SEPTIEMBRE</option>
-                                        <option value="Octubre" disabled>OCTUBRE</option>
-                                        <option value="Noviembre" disabled>NOVIEMBRE</option>
-                                        <option value="Diciembre" disabled>DICIEMBRE</option>
+
+                                        <optgroup label="2018">
+                                            <option value="Diciembre">DICIEMBRE</option>
+                                        </optgroup>
+
+                                        <optgroup label="2019">
+                                            <option value="Enero">ENERO</option>
+                                            <option value="Febrero">FEBRERO</option>
+                                            <option value="Marzo">MARZO</option>
+                                            <option value="Abril" disabled>ABRIL</option>
+                                            <option value="Mayo" disabled>MAYO</option>
+                                            <option value="Junio" disabled>JUNIO</option>
+                                            <option value="Julio" disabled>JULIO</option>
+                                            <option value="Agosto" disabled>AGOSTO</option>
+                                            <option value="Septiembre" disabled>SEPTIEMBRE</option>
+                                            <option value="Octubre" disabled>OCTUBRE</option>
+                                            <option value="Noviembre" disabled>NOVIEMBRE</option>
+                                        </optgroup>
+
                                     </select>
                                 </div>
 
