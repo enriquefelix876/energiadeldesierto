@@ -379,7 +379,6 @@ if($inicioVerano == "Mayo"){
         $consumoMarzoFuturo = desgloseConsumoPorMesInvierno($consumoPorMes['mes12'], 75, 125, 0.802, 0.968, 2.835);
     }
 
-
 }
 
 ?>

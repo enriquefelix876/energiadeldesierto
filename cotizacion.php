@@ -178,8 +178,23 @@
         <h3>Análisis de consumo y escenario de ahorros.</h3>
     </div>
 
+    <?php 
+    
+    //Se ordena el consumo previo de los meses dados por el usuario
+    $consumoPrevioOrdenado = ordenarConsumo($consumoEnero, $consumoFebrero, $consumoMarzo, 
+    $consumoAbril, $consumoMayo, $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, 
+    $consumoOctubre, $consumoNoviembre, $consumoDiciembre, $mes, $frecuencia_pago); 
+
+    //Se ordena el consumo futuro de los meses
+    $consumoFuturoOrdenado = ordenarConsumo($consumoEneroFuturo, $consumoFebreroFuturo, 
+    $consumoMarzoFuturo, $consumoAbrilFuturo, $consumoMayoFuturo, $consumoJunioFuturo, $consumoJulioFuturo, 
+    $consumoAgostoFuturo, $consumoSeptiembreFuturo, $consumoOctubreFuturo, $consumoNoviembreFuturo, 
+    $consumoDiciembreFuturo, $mes, $frecuencia_pago);
+    
+    ?>
 
     <?php if($frecuencia_pago == "Mensual"): ?>
+
     <div class="container mt-3">
         <table class="table table-striped">
             <thead>
@@ -196,87 +211,99 @@
                 <tr>
                 <th scope="row"><span id="mes1txt">Febrero</span></th>
                 <td><?php echo $_POST['mes1']?></td>
-                <td><?php echo round($consumoFebrero['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoFebreroFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoFebrero['pago']*1.16)-($consumoFebreroFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[0]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[0]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[0]['pago']*1.16)-
+                ($consumoFuturoOrdenado[0]['pago']*1.16), 2)?></td>
                 </tr>
                 <tr>
                 <th scope="row"><span id="mes2txt">Marzo</span></th>
                 <td><?php echo $_POST['mes2']?></td>
-                <td><?php echo round($consumoMarzo['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoMarzoFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoMarzo['pago']*1.16)-($consumoMarzoFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[1]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[1]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[1]['pago']*1.16)-
+                ($consumoFuturoOrdenado[1]['pago']*1.16), 2)?></td>
                 </tr>
                 <tr>
                 <th scope="row"><span id="mes3txt">Abril</span></th>
                 <td><?php echo $_POST['mes3']?></td>
-                <td><?php echo round($consumoAbril['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoAbrilFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoAbril['pago']*1.16)-($consumoAbrilFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[2]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[2]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[2]['pago']*1.16)-
+                ($consumoFuturoOrdenado[2]['pago']*1.16), 2)?></td>
                 </tr>
                 <tr>
                 <th scope="row"><span id="mes4txt">Mayo</span></th>
                 <td><?php echo $_POST['mes4']?></td>
-                <td><?php echo round($consumoMayo['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoMayoFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoMayo['pago']*1.16)-($consumoMayoFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[3]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[3]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[3]['pago']*1.16)-
+                ($consumoFuturoOrdenado[3]['pago']*1.16), 2)?></td>
                 </tr>
                 <tr>
                 <th scope="row"><span id="mes5txt">Junio</span></th>
                 <td><?php echo $_POST['mes5']?></td>
-                <td><?php echo round($consumoJunio['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoJunioFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoJunio['pago']*1.16)-($consumoJunioFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[4]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[4]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[4]['pago']*1.16)-
+                ($consumoFuturoOrdenado[4]['pago']*1.16), 2)?></td>
                 </tr>
                 <tr>
                 <th scope="row"><span id="mes6txt">Julio</span></th>
                 <td><?php echo $_POST['mes6']?></td>
-                <td><?php echo round($consumoJulio['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoJulioFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoJulio['pago']*1.16)-($consumoJulioFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[5]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[5]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[5]['pago']*1.16)-
+                ($consumoFuturoOrdenado[5]['pago']*1.16), 2)?></td>
                 </tr>
                 <tr>
                 <th scope="row"><span id="mes7txt">Agosto</span></th>
                 <td><?php echo $_POST['mes7']?></td>
-                <td><?php echo round($consumoAgosto['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoAgostoFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoAgosto['pago']*1.16)-($consumoAgostoFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[6]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[6]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[6]['pago']*1.16)-
+                ($consumoFuturoOrdenado[6]['pago']*1.16), 2)?></td>
                 </tr>
                 <tr>
                 <th scope="row"><span id="mes8txt">Septiembre</span></th>
                 <td><?php echo $_POST['mes8']?></td>
-                <td><?php echo round($consumoSeptiembre['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoSeptiembreFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoSeptiembre['pago']*1.16)-($consumoSeptiembreFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[7]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[7]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[7]['pago']*1.16)-
+                ($consumoFuturoOrdenado[7]['pago']*1.16), 2)?></td>
                 </tr>
                 <tr>
                 <th scope="row"><span id="mes9txt">Octubre</span></th>
                 <td><?php echo $_POST['mes9']?></td>
-                <td><?php echo round($consumoOctubre['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoOctubreFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoOctubre['pago']*1.16)-($consumoOctubreFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[8]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[8]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[8]['pago']*1.16)-
+                ($consumoFuturoOrdenado[8]['pago']*1.16), 2)?></td>
                 </tr>
                 <tr>
                 <th scope="row"><span id="mes10txt">Noviembre</span></th>
                 <td><?php echo $_POST['mes10']?></td>
-                <td><?php echo round($consumoNoviembre['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoNoviembreFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoNoviembre['pago']*1.16)-($consumoNoviembreFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[9]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[9]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[9]['pago']*1.16)-
+                ($consumoFuturoOrdenado[9]['pago']*1.16), 2)?></td>
                 </tr>
                 <tr>
                 <tr>
                 <th scope="row"><span id="mes11txt">Diciembre</span></th>
                 <td><?php echo $_POST['mes11']?></td>
-                <td><?php echo round($consumoDiciembre['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoDiciembreFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoDiciembre['pago']*1.16)-($consumoDiciembreFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[10]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[10]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[10]['pago']*1.16)-
+                ($consumoFuturoOrdenado[10]['pago']*1.16), 2)?></td>
                 </tr>
                 <tr>
                 <th scope="row"><span id="mes12txt">Enero</span></th>
                 <td><?php echo $_POST['mes12']?></td>
-                <td><?php echo round($consumoEnero['pago']*1.16, 2)?></td>
-                <td><?php echo round($consumoEneroFuturo['pago']*1.16, 2)?></td>
-                <td><?php echo round(($consumoEnero['pago']*1.16)-($consumoEneroFuturo['pago']*1.16), 2)?></td>
+                <td><?php echo round($consumoPrevioOrdenado[11]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[11]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[11]['pago']*1.16)-
+                ($consumoFuturoOrdenado[11]['pago']*1.16), 2)?></td>
                 </tr>
                 <th scope="col">Total anual</th>
                 <th scope="col"></th>
@@ -291,7 +318,7 @@
     <?php endif; ?>
 
     <script>
-        generarMeses("<?php echo $_POST['mes'] ?>");
+        generarMeses("<?php echo $_POST['mes'] ?>","<?php echo $frecuencia_pago ?>");
     </script>
     </body>
     
