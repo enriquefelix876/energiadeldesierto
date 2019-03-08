@@ -7,7 +7,8 @@
 	$titular= $_POST['titular'];
 	$estado = $_POST['estado'];
 	$municipio = $_POST['municipio'];
-	$codigopostal = $_POST['codigopostal'];
+    $codigopostal = $_POST['codigopostal'];
+    $frecuencia_pago = $_POST['frecuencia_pago'];
 	$tarifa = $_POST['tarifa'];
 	$servicio = $_POST['servicio'];
 	$mes = $_POST['mes'];

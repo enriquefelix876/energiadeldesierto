@@ -1,6 +1,7 @@
 <?php
 
     require_once('php/funciones.php');
+    $frecuencia = $_POST['frecuencia_pago'];
 
     switch ($_POST['tarifa']) {
         
@@ -25,7 +26,13 @@
             break;
         
         case '1E':
-            require_once('php/proyeccion1E.php');
+
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1E.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1E.php');
+            }
+
             break;
         
         case '1F':
@@ -95,7 +102,11 @@
             break;
         
         case '1E':
-            require_once('php/proyeccion1EFuturo.php');
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1EFuturo.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1EFuturo.php');
+            }
             break;
         
         case '1F':

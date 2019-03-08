@@ -90,21 +90,21 @@ function generarMeses(mes, frecuencia){
             case "Diciembre":
 
                 $("#mes1txt").text("AGO 18 AL OCT 18");
-                $("#mes2txt").hide();
-                $("#mes2").hide();
-                $("#mes3txt").text("JUN 18 AL AGO 18");
-                $("#mes4txt").hide();
-                $("#mes4").hide();
-                $("#mes5txt").text("ABR 18 AL JUN 18");
-                $("#mes6txt").hide();
-                $("#mes6").hide();
-                $("#mes7txt").text("FEB 18 AL ABR 18");
+                $("#mes2txt").text("JUN 18 AL AGO 18");
+                $("#mes3txt").text("ABR 18 AL JUN 18");
+                $("#mes4txt").text("FEB 18 AL ABR 18");
+                $("#mes5txt").text("DIC 17 AL FEB 18");
+                $("#mes6txt").text("OCT 17 AL DIC 17");
+                $("#mes7txt").hide();
+                $("#mes7").hide();
                 $("#mes8txt").hide();
                 $("#mes8").hide();
-                $("#mes9txt").text("DIC 17 AL FEB 18");
+                $("#mes9txt").hide();
+                $("#mes9").hide();
                 $("#mes10txt").hide();
                 $("#mes10").hide();
-                $("#mes11txt").text("OCT 17 AL DIC 17");
+                $("#mes11txt").hide();
+                $("#mes11").hide();
                 $("#mes12txt").hide();
                 $("#mes12").hide();
 
@@ -113,21 +113,21 @@ function generarMeses(mes, frecuencia){
             case "Enero":
 
                 $("#mes1txt").text("SEP 18 AL NOV 18");
-                $("#mes2txt").hide();
-                $("#mes2").hide();
-                $("#mes3txt").text("JUL 18 AL SEP 18");
-                $("#mes4txt").hide();
-                $("#mes4").hide();
-                $("#mes5txt").text("MAY 18 AL JUL 18");
-                $("#mes6txt").hide();
-                $("#mes6").hide();
-                $("#mes7txt").text("MAR 18 AL MAY 18");
+                $("#mes2txt").text("JUL 18 AL SEP 18");
+                $("#mes3txt").text("MAY 18 AL JUL 18");
+                $("#mes4txt").text("MAR 18 AL MAY 18");
+                $("#mes5txt").text("ENE 18 AL MAR 18");
+                $("#mes6txt").text("NOV 17 AL ENE 18");
+                $("#mes7txt").hide();
+                $("#mes7").hide();
                 $("#mes8txt").hide();
                 $("#mes8").hide();
-                $("#mes9txt").text("ENE 18 AL MAR 18");
+                $("#mes9txt").hide();
+                $("#mes9").hide();
                 $("#mes10txt").hide();
                 $("#mes10").hide();
-                $("#mes11txt").text("NOV 17 AL ENE 18");
+                $("#mes11txt").hide();
+                $("#mes11").hide();
                 $("#mes12txt").hide();
                 $("#mes12").hide();
 
@@ -136,21 +136,21 @@ function generarMeses(mes, frecuencia){
             case "Febrero":
 
                 $("#mes1txt").text("OCT 18 AL DIC 18");
-                $("#mes2txt").hide();
-                $("#mes2").hide();
-                $("#mes3txt").text("AGO 18 AL OCT 18");
-                $("#mes4txt").hide();
-                $("#mes4").hide();
-                $("#mes5txt").text("JUN 18 AL AGO 18");
-                $("#mes6txt").hide();
-                $("#mes6").hide();
-                $("#mes7txt").text("ABR 18 AL JUN 18");
+                $("#mes2txt").text("AGO 18 AL OCT 18");
+                $("#mes3txt").text("JUN 18 AL AGO 18");
+                $("#mes4txt").text("ABR 18 AL JUN 18");
+                $("#mes5txt").text("FEB 18 AL ABR 18");
+                $("#mes6txt").text("DIC 17 AL FEB 18");
+                $("#mes7txt").hide();
+                $("#mes7").hide();
                 $("#mes8txt").hide();
                 $("#mes8").hide();
-                $("#mes9txt").text("FEB 18 AL ABR 18");
+                $("#mes9txt").hide();
+                $("#mes9").hide();
                 $("#mes10txt").hide();
                 $("#mes10").hide();
-                $("#mes11txt").text("DIC 17 AL FEB 18");
+                $("#mes11txt").hide();
+                $("#mes11").hide();
                 $("#mes12txt").hide();
                 $("#mes12").hide();
 
@@ -159,21 +159,21 @@ function generarMeses(mes, frecuencia){
             case "Marzo":
 
                 $("#mes1txt").text("NOV 18 AL ENE 19");
-                $("#mes2txt").hide();
-                $("#mes2").hide();
-                $("#mes3txt").text("SEP 18 AL NOV 18");
-                $("#mes4txt").hide();
-                $("#mes4").hide();
-                $("#mes5txt").text("JUL 18 AL SEP 18");
-                $("#mes6txt").hide();
-                $("#mes6").hide();
-                $("#mes7txt").text("MAY 18 AL JUL 18");
+                $("#mes2txt").text("SEP 18 AL NOV 18");
+                $("#mes3txt").text("JUL 18 AL SEP 18");
+                $("#mes4txt").text("MAY 18 AL JUL 18");
+                $("#mes5txt").text("MAR 18 AL MAY 18");
+                $("#mes6txt").text("ENE 18 AL MAR 18");
+                $("#mes7txt").hide();
+                $("#mes7").hide();
                 $("#mes8txt").hide();
                 $("#mes8").hide();
-                $("#mes9txt").text("MAR 18 AL MAY 18");
+                $("#mes9txt").hide();
+                $("#mes9").hide();
                 $("#mes10txt").hide();
                 $("#mes10").hide();
-                $("#mes11txt").text("ENE 18 AL MAR 18");
+                $("#mes11txt").hide();
+                $("#mes11").hide();
                 $("#mes12txt").hide();
                 $("#mes12").hide();
 

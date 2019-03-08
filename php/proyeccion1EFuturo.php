@@ -68,8 +68,8 @@
     
     $inicioVerano = "Mayo";
 
-   //En caso de que el verano inicie en Febrero
-   if($inicioVerano == "Febrero"){
+//En caso de que el verano inicie en Febrero
+if($inicioVerano == "Febrero"){
 
     //En caso de que el ultimo mes sea Diciembre
     if($mes == "Diciembre"){

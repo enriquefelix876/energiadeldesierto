@@ -6,7 +6,8 @@
 	//Variables globales
 	$titular= $_POST['titular'];
 	$estado = $_POST['estado'];
-	$municipio = $_POST['municipio'];
+    $municipio = $_POST['municipio'];
+    $frecuencia_pago = $_POST['frecuencia_pago'];
 	$codigopostal = $_POST['codigopostal'];
 	$tarifa = $_POST['tarifa'];
 	$servicio = $_POST['servicio'];

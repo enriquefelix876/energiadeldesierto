@@ -11,23 +11,12 @@
 	$tarifa = $_POST['tarifa'];
 	$servicio = $_POST['servicio'];
     $mes = $_POST['mes'];
-    
-    if($frecuencia_pago=="Mensual"){
 
-        $consumoPorMes = array("mes1" => $_POST['mes1'],"mes2" => $_POST['mes2'],"mes3" => $_POST['mes3'],
-            "mes4" => $_POST['mes4'],"mes5" => $_POST['mes5'],"mes6" => $_POST['mes6'],"mes7" => $_POST['mes7'],
-            "mes8" => $_POST['mes8'],"mes9" => $_POST['mes9'],"mes10" => $_POST['mes10'],"mes11" => $_POST['mes11'],
-            "mes12" => $_POST['mes12']
-        );
-
-    }else{
-
-    $consumoPorMes = array("mes1" => $_POST['mes1'],"mes2" => 0,"mes3" => $_POST['mes3'],
-            "mes4" => 0,"mes5" => $_POST['mes5'],"mes6" => 0,"mes7" => $_POST['mes7'],
-            "mes8" => 0,"mes9" => $_POST['mes9'],"mes10" => 0,"mes11" => $_POST['mes11'],
-            "mes12" => 0
-        );
-    }
+    $consumoPorMes = array("mes1" => $_POST['mes1'],"mes2" => $_POST['mes2'],"mes3" => $_POST['mes3'],
+        "mes4" => $_POST['mes4'],"mes5" => $_POST['mes5'],"mes6" => $_POST['mes6'],"mes7" => $_POST['mes7'],
+        "mes8" => $_POST['mes8'],"mes9" => $_POST['mes9'],"mes10" => $_POST['mes10'],"mes11" => $_POST['mes11'],
+        "mes12" => $_POST['mes12']
+    );
 
     $consumoEnero = array(
 
