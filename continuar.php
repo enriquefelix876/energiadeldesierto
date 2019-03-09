@@ -71,9 +71,9 @@
 				<input type="text" name="tarifa" id="tarifa" hidden value="<?php echo $tarifa ?>">
 				<input type="text" name="servicio" id="servicio" hidden value="<?php echo $servicio ?>">
 				<input type="text" name="mes" id="mes" hidden value="<?php echo $mes ?>">
-
 				<input type="text" name="frecuencia_pago" id="frecuencia_pago"  
 				hidden value="<?php echo $frecuencia_pago ?>">
+				<input type="text" name="capacidad" id="capacidad" hidden value="1.2">
 
 				<div class="row justify-content-center mt-2">
 					<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center">

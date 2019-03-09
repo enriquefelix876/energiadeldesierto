@@ -164,6 +164,18 @@
 
     }
 
+    /*
+     * Metodo para obtener la produccion promedio diaria mensual
+    */
+    function obtenerPromedioDiarioBimestral($consumos){
+
+        $promedioDiario = 0;
+        $consumoIntermedioBajo = 0;
+        $consumoIntermedioAlto = 0;
+        $consumoExcedente = 0;
+
+
+    }
 
     /*
      * Metodo para obtener la produccion promedio 
@@ -253,7 +265,97 @@
 
         return $consumoPorMesFuturo;
     }
+
+
+    /*
+     *Ordenar meses bimestrales
+    */
+    function ordenarMesesBimestrales($consumoEnero, $consumoFebrero, $consumoMarzo, $consumoAbril, 
+    $consumoMayo, $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, $consumoOctubre, 
+    $consumoNoviembre, $consumoDiciembre, $mes){
+
+        $mesesOrdenados = array();
+
+        switch ($mes) {
+
+            case 'Diciembre':
+
+                $mesesOrdenados[] = $consumoSeptiembre;
+                $mesesOrdenados[] = $consumoJulio;
+                $mesesOrdenados[] = $consumoMayo;
+                $mesesOrdenados[] = $consumoMarzo;
+                $mesesOrdenados[] = $consumoEnero;
+                $mesesOrdenados[] = $consumoNoviembre;
+                
+                break;
+            
+            case 'Enero':
+
+                $mesesOrdenados[] = $consumoOctubre;
+                $mesesOrdenados[] = $consumoAgosto;
+                $mesesOrdenados[] = $consumoJunio;
+                $mesesOrdenados[] = $consumoAbril;
+                $mesesOrdenados[] = $consumoFebrero;
+                $mesesOrdenados[] = $consumoDiciembre;
+                
+            break;
+
+            case 'Febrero':
+
+                $mesesOrdenados[] = $consumoNoviembre;
+                $mesesOrdenados[] = $consumoSeptiembre;
+                $mesesOrdenados[] = $consumoJulio;
+                $mesesOrdenados[] = $consumoMayo;
+                $mesesOrdenados[] = $consumoMarzo;
+                $mesesOrdenados[] = $consumoEnero;
+                
+            break;
+
+            case 'Marzo':
+
+                $mesesOrdenados[] = $consumoDiciembre;
+                $mesesOrdenados[] = $consumoOctubre;
+                $mesesOrdenados[] = $consumoAgosto;
+                $mesesOrdenados[] = $consumoJunio;
+                $mesesOrdenados[] = $consumoAbril;
+                $mesesOrdenados[] = $consumoFebrero;
+                
+            break;
+
+            case 'Abril':
+
+                $mesesOrdenados[] = $consumoEnero;
+                $mesesOrdenados[] = $consumoNoviembre;
+                $mesesOrdenados[] = $consumoSeptiembre;
+                $mesesOrdenados[] = $consumoJulio;
+                $mesesOrdenados[] = $consumoMayo;
+                $mesesOrdenados[] = $consumoMarzo;
+                
+            break;
+            
+        }
+
+        return $mesesOrdenados;
+        
+    }
+
     
+    /*
+     *Metodo para obtener el total anual bimestral mas IVA
+    */
+    function obtenerTotalAnualAnteriorBimestral($mesesBimestralesOrdenados){
+
+        $mesesOrdenados = $mesesBimestralesOrdenados;
+        $total = 0;
+
+        foreach ($mesesOrdenados as $valor) {
+            
+            $total += $valor['pago']*1.16;
+            
+        }
+
+        return $total;
+    }    
 
     /*
      *Metodo para obtener el total anual mas IVA
@@ -346,6 +448,48 @@
         //En caso de que el periodo de facturacion sea Bimestral
         }else{
 
+            switch ($ultimoMes) {
+
+                case 'Diciembre':
+
+                    $mesesOrdenados[] = $consumoSeptiembre; $mesesOrdenados[] = $consumoJulio; 
+                    $mesesOrdenados[] = $consumoMayo; $mesesOrdenados[] = $consumoMarzo; 
+                    $mesesOrdenados[] = $consumoEnero; $mesesOrdenados[] = $consumoNoviembre; 
+                    
+                    break;
+                
+                case 'Enero':
+
+                    $mesesOrdenados[] = $consumoOctubre; $mesesOrdenados[] = $consumoAgosto; 
+                    $mesesOrdenados[] = $consumoJunio; $mesesOrdenados[] = $consumoAbril; 
+                    $mesesOrdenados[] = $consumoFebrero; $mesesOrdenados[] = $consumoDiciembre; 
+                    
+                    break;
+
+                case 'Febrero':
+
+                    $mesesOrdenados[] = $consumoNoviembre; $mesesOrdenados[] = $consumoSeptiembre; 
+                    $mesesOrdenados[] = $consumoJulio; $mesesOrdenados[] = $consumoMayo; 
+                    $mesesOrdenados[] = $consumoMarzo; $mesesOrdenados[] = $consumoEnero; 
+                    
+                    break;
+                
+                case 'Marzo':
+
+                    $mesesOrdenados[] = $consumoDiciembre; $mesesOrdenados[] = $consumoOctubre; 
+                    $mesesOrdenados[] = $consumoAgosto; $mesesOrdenados[] = $consumoJunio; 
+                    $mesesOrdenados[] = $consumoAbril; $mesesOrdenados[] = $consumoFebrero; 
+                     
+                    break;
+
+                case 'Abril':
+
+                    $mesesOrdenados[] = $consumoEnero; $mesesOrdenados[] = $consumoNoviembre; 
+                    $mesesOrdenados[] = $consumoSeptiembre; $mesesOrdenados[] = $consumoJulio; 
+                    $mesesOrdenados[] = $consumoMayo; $mesesOrdenados[] = $consumoMarzo;
+                    
+                    break;
+            }
 
         }
 

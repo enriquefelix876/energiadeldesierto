@@ -7,22 +7,53 @@
         
         case '1':
             require_once('php/proyeccion1.php');
+
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1.php');
+            }
+
             break;
         
         case '1A':
-            require_once('php/proyeccion1A.php');
+            
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1A.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1A.php');
+            }
+
             break;
         
         case '1B':
-            require_once('php/proyeccion1B.php');
+        
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1B.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1B.php');
+            }
+
             break;
         
         case '1C':
-            require_once('php/proyeccion1C.php');
+            
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1C.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1C.php');
+            }
+
             break;
         
         case '1D':
-            require_once('php/proyeccion1C.php');
+            
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1D.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1D.php');
+            }
+
             break;
         
         case '1E':
@@ -36,7 +67,12 @@
             break;
         
         case '1F':
-            require_once('php/proyeccion1F.php');
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1F.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1F.php');
+            }
+
             break;
         
         default:
@@ -48,7 +84,7 @@
     //Constante
     $produccionPromedio = 5;
     $AFavor = false;
-    $capacidad = 6.0;
+    $capacidad = $_POST['capacidad'];
 
     //Area requerida
     $areaRequerida = ($capacidad/0.3)*(0.992*1.96);
@@ -60,12 +96,12 @@
     $precioTotal = ($capacidad/0.3)*8500;
 
     //Obtener Promedio Diario
-    $promedioDiario = obtenerPromedioDiario($consumoEnero, $consumoFebrero, $consumoMarzo, $consumoAbril, 
-    $consumoMayo, $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, $consumoOctubre, 
-    $consumoNoviembre, $consumoDiciembre);
+    //$promedioDiario = obtenerPromedioDiario($consumoEnero, $consumoFebrero, $consumoMarzo, $consumoAbril, 
+    //$consumoMayo, $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, $consumoOctubre, 
+    //$consumoNoviembre, $consumoDiciembre);
         
     //Capacidad requerida obtenida a partir de sacar el promedio diario entre la produccion promedio
-    $capacidadRequerida = $promedioDiario / $produccionPromedio;
+    //$capacidadRequerida = $promedioDiario / $produccionPromedio;
         
     //Obtener Produccion diaria
     $produccionDiaria = $produccionPromedio * $capacidad;
@@ -75,30 +111,65 @@
 
     $consumoFuturo = consumoFuturo($consumoPorMes, $produccionMensual);
 
-    //Obtener el total anual aplicando el IVA
-    $totalAnualAnterior = obtenerTotalAnualAnterior($consumoEnero, $consumoFebrero, $consumoMarzo, 
-    $consumoAbril, $consumoMayo, $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, 
-    $consumoOctubre, $consumoNoviembre, $consumoDiciembre);
+    $mesesBimestralesOrdenados = array();
+    
+    if($frecuencia_pago == "Mensual"){
+        //Obtener el total anual aplicando el IVA
+        $totalAnualAnterior = obtenerTotalAnualAnterior($consumoEnero, $consumoFebrero, $consumoMarzo, 
+        $consumoAbril, $consumoMayo, $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, 
+        $consumoOctubre, $consumoNoviembre, $consumoDiciembre);
+
+    }elseif ($frecuencia_pago == "Bimestral") {
+
+        //Obtener el total anual aplicando el IVA
+
+        $mesesBimestralesOrdenados = ordenarMesesBimestrales($consumoEnero, $consumoFebrero, $consumoMarzo, 
+        $consumoAbril, $consumoMayo, $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, 
+        $consumoOctubre, $consumoNoviembre, $consumoDiciembre, $mes);
+
+        $totalAnualAnterior = obtenerTotalAnualAnteriorBimestral($mesesBimestralesOrdenados);
+    }
+
     switch ($_POST['tarifa']) {
         
         case '1':
-            require_once('php/proyeccion1Futuro.php');
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1Futuro.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1Futuro.php');
+            }
             break;
         
         case '1A':
-            require_once('php/proyeccion1AFuturo.php');
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1AFuturo.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1AFuturo.php');
+            }
             break;
         
         case '1B':
-            require_once('php/proyeccion1BFuturo.php');
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1BFuturo.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1BFuturo.php');
+            }
             break;
         
         case '1C':
-            require_once('php/proyeccion1CFuturo.php');
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1CFuturo.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1CFuturo.php');
+            }
             break;
         
         case '1D':
-            require_once('php/proyeccion1DFuturo.php');
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1DFuturo.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1DFuturo.php');
+            }
             break;
         
         case '1E':
@@ -110,18 +181,34 @@
             break;
         
         case '1F':
-            require_once('php/proyeccion1FFuturo.php');
+            if($frecuencia=="Mensual"){
+                require_once('php/proyeccion1FFuturo.php');
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestral1FFuturo.php');
+            }
             break;
         
         default:
             break;
     }
 
-    //Obtener el total anual aplicando el IVA
-    $totalAnualPosterior = obtenerTotalAnualAnterior($consumoEneroFuturo, $consumoFebreroFuturo, 
-    $consumoMarzoFuturo, $consumoAbrilFuturo, $consumoMayoFuturo, $consumoJunioFuturo, $consumoJulioFuturo, 
-    $consumoAgostoFuturo, $consumoSeptiembreFuturo, $consumoOctubreFuturo, $consumoNoviembreFuturo, 
-    $consumoDiciembreFuturo);
+    if($frecuencia_pago=="Mensual"){
+        //Obtener el total anual aplicando el IVA
+        $totalAnualPosterior = obtenerTotalAnualAnterior($consumoEneroFuturo, $consumoFebreroFuturo, 
+        $consumoMarzoFuturo, $consumoAbrilFuturo, $consumoMayoFuturo, $consumoJunioFuturo, $consumoJulioFuturo, 
+        $consumoAgostoFuturo, $consumoSeptiembreFuturo, $consumoOctubreFuturo, $consumoNoviembreFuturo, 
+        $consumoDiciembreFuturo);
+
+    }elseif ($frecuencia_pago == "Bimestral") {
+        
+        $mesesBimestralesOrdenados = ordenarMesesBimestrales($consumoEneroFuturo, $consumoFebreroFuturo, 
+        $consumoMarzoFuturo, $consumoAbrilFuturo, $consumoMayoFuturo, $consumoJunioFuturo, $consumoJulioFuturo, 
+        $consumoAgostoFuturo, $consumoSeptiembreFuturo, $consumoOctubreFuturo, $consumoNoviembreFuturo, 
+        $consumoDiciembreFuturo, $mes);
+
+        $totalAnualPosterior = obtenerTotalAnualAnteriorBimestral($mesesBimestralesOrdenados);
+
+    }
 
     $totalFinal = $totalAnualAnterior - $totalAnualPosterior;
 
@@ -174,7 +261,6 @@
                     <span class="font-weight-bold">Capacidad:</span><?php echo " ". $capacidad . " kW" ?><br>
                     <span class="font-weight-bold">Area requerida: </span><?php echo $areaRequerida ?><br>
                     <span class="font-weight-bold">No. de paneles:</span><?php echo " ". $paneles ?><br>
-                    <span class="font-weight-bold">Promedio diario:</span><?php echo " ". round($promedioDiario, 2) ." kWh" ?><br>
                     <span class="font-weight-bold">Prod. promedio diaria:</span><?php echo " ". $produccionDiaria . " kWh"  ?><br>
                     <span class="font-weight-bold">Prod. promedio mensual:</span><?php echo " ". $produccionMensual . " kWh"  ?><br>
                     <span class="font-weight-bold">Precio: </span><?php echo "$". $precioTotal ?><br>
@@ -184,6 +270,57 @@
         </div>
     </div>
     <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <form action="cotizacion.php" method="POST">
+                    <div class="form-group">
+                        <label for="capacidad">Seleccionar capacidad</label>
+                        <select name="capacidad" id="capacidad" class="form-control">
+                            <option value="<?php echo $capacidad ?>"><?php echo $capacidad ."kWh" ?></option>  
+                            <option value="" disabled></option>                      
+                            <option value="1.2">1.2 kWh</option>
+                            <option value="2.4">2.4 kWh</option>
+                            <option value="3.6">3.6 kWh</option>
+                            <option value="4.8">4.8 kWh</option>
+                            <option value="6.0">6.0 kWh</option>
+                            <option value="7.2">7.2 kWh</option>
+                            <option value="8.4">8.4 kWh</option>
+                            <option value="9.6">9.6 kWh</option>
+                            <option value="10.8">10.8 kWh</option>
+                            <option value="12.0">12.0 kWh</option>
+                        </select>
+                        <input type="text" hidden name="tarifa" id="tarifa" value="<?php echo $tarifa ?>">
+                        <input type="text" hidden name="frecuencia_pago" id="frecuencia_pago" 
+                        value="<?php echo $frecuencia_pago ?>">
+                        <input type="text" hidden name="titular" id="titular" value="<?php echo $titular ?>">
+                        <input type="text" hidden name="estado" id="estado" value="<?php echo $estado ?>">
+                        <input type="text" hidden name="municipio" id="municipio" value="<?php echo $municipio ?>">
+                        <input type="text" hidden name="servicio" id="servicio" value="<?php echo $servicio ?>">
+
+                        <input type="text" name="mes1" id="mes1" hidden value="<?php echo $_POST['mes1'] ?>">
+                        <input type="text" name="mes2" id="mes2" hidden value="<?php echo $_POST['mes2'] ?>">
+                        <input type="text" name="mes3" id="mes3" hidden value="<?php echo $_POST['mes3'] ?>">
+                        <input type="text" name="mes4" id="mes4" hidden value="<?php echo $_POST['mes4'] ?>">
+                        <input type="text" name="mes5" id="mes5" hidden value="<?php echo $_POST['mes5'] ?>">
+                        <input type="text" name="mes6" id="mes6" hidden value="<?php echo $_POST['mes6'] ?>">
+                        <input type="text" name="mes7" id="mes7" hidden value="<?php echo $_POST['mes7'] ?>">
+                        <input type="text" name="mes8" id="mes8" hidden value="<?php echo $_POST['mes8'] ?>">
+                        <input type="text" name="mes9" id="mes9" hidden value="<?php echo $_POST['mes9'] ?>">
+                        <input type="text" name="mes10" id="mes10" hidden value="<?php echo $_POST['mes10'] ?>">
+                        <input type="text" name="mes11" id="mes11" hidden value="<?php echo $_POST['mes11'] ?>">
+                        <input type="text" name="mes12" id="mes12" hidden value="<?php echo $_POST['mes12'] ?>">
+
+                        <input type="text" name="mes" id="mes" hidden value="<?php echo $_POST['mes'] ?>">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Seleccionar" class="btn btn-primary">
+                    </div>
+                </form>    
+            </div>
+        </div>
+    </div>
 
     <div class="row justify-content-center">
         <h3>Análisis de consumo y escenario de ahorros.</h3>
@@ -324,6 +461,79 @@
                 </tr>
             </tbody>
             </table>
+    </div>
+
+    <?php elseif ($frecuencia_pago == "Bimestral"): ?>
+
+    <div class="container mt-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col">Período</th>
+                <th scope="col">Consumo [kWh]</th>
+                <th scope="col">Facturación</th>
+                <th scope="col">Pudo haber pagado</th>
+                <th scope="col">Ahorro</th>
+                </tr>
+
+                <tr>
+                <th scope="row"><span id="mes1txt">Febrero</span></th>
+                <td><?php echo $_POST['mes1']?></td>
+                <td><?php echo round($consumoPrevioOrdenado[0]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[0]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[0]['pago']*1.16)-
+                ($consumoFuturoOrdenado[0]['pago']*1.16), 2)?></td>
+                </tr>
+                <tr>
+                <th scope="row"><span id="mes2txt">Marzo</span></th>
+                <td><?php echo $_POST['mes2']?></td>
+                <td><?php echo round($consumoPrevioOrdenado[1]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[1]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[1]['pago']*1.16)-
+                ($consumoFuturoOrdenado[1]['pago']*1.16), 2)?></td>
+                </tr>
+                <tr>
+                <th scope="row"><span id="mes3txt">Abril</span></th>
+                <td><?php echo $_POST['mes3']?></td>
+                <td><?php echo round($consumoPrevioOrdenado[2]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[2]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[2]['pago']*1.16)-
+                ($consumoFuturoOrdenado[2]['pago']*1.16), 2)?></td>
+                </tr>
+                <tr>
+                <th scope="row"><span id="mes4txt">Mayo</span></th>
+                <td><?php echo $_POST['mes4']?></td>
+                <td><?php echo round($consumoPrevioOrdenado[3]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[3]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[3]['pago']*1.16)-
+                ($consumoFuturoOrdenado[3]['pago']*1.16), 2)?></td>
+                </tr>
+                <tr>
+                <th scope="row"><span id="mes5txt">Junio</span></th>
+                <td><?php echo $_POST['mes5']?></td>
+                <td><?php echo round($consumoPrevioOrdenado[4]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[4]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[4]['pago']*1.16)-
+                ($consumoFuturoOrdenado[4]['pago']*1.16), 2)?></td>
+                </tr>
+                <tr>
+                <th scope="row"><span id="mes6txt">Julio</span></th>
+                <td><?php echo $_POST['mes6']?></td>
+                <td><?php echo round($consumoPrevioOrdenado[5]['pago']*1.16, 2)?></td>
+                <td><?php echo round($consumoFuturoOrdenado[5]['pago']*1.16, 2)?></td>
+                <td><?php echo round(($consumoPrevioOrdenado[5]['pago']*1.16)-
+                ($consumoFuturoOrdenado[5]['pago']*1.16), 2)?></td>
+                </tr>
+
+                <th scope="col">Total anual</th>
+                <th scope="col"></th>
+                <th scope="col"><?php echo round($totalAnualAnterior, 2) ?></th>
+                <th scope="col"><?php echo round($totalAnualPosterior, 2) ?></th>
+                <th scope="col"><?php echo round($totalFinal, 2)?></th>
+                </tr>
+
+            </thead>
+        </table>
     </div>
 
     <?php endif; ?>
