@@ -217,11 +217,16 @@
      * Metodo para obtener un desglose del consumo por mes esperado
      * Retorna el desglose del consumo esperado
     */
-    function consumoFuturo($consumoPorMes, $produccionMensual){
+    function consumoFuturo($consumoPorMes, $produccionMensual, $frecuencia){
 
         $consumoPorMesFuturo = array();
         $AFavor = 0;
         $bolsaEnergia = 0;
+
+        if($frecuencia=="Bimestral"){
+
+            $produccionMensual*=2;
+        }
 
         foreach ($consumoPorMes as $valor) {
 
@@ -266,79 +271,6 @@
         return $consumoPorMesFuturo;
     }
 
-
-    /*
-     *Ordenar meses bimestrales
-    */
-    function ordenarMesesBimestrales($consumoEnero, $consumoFebrero, $consumoMarzo, $consumoAbril, 
-    $consumoMayo, $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, $consumoOctubre, 
-    $consumoNoviembre, $consumoDiciembre, $mes){
-
-        $mesesOrdenados = array();
-
-        switch ($mes) {
-
-            case 'Diciembre':
-
-                $mesesOrdenados[] = $consumoSeptiembre;
-                $mesesOrdenados[] = $consumoJulio;
-                $mesesOrdenados[] = $consumoMayo;
-                $mesesOrdenados[] = $consumoMarzo;
-                $mesesOrdenados[] = $consumoEnero;
-                $mesesOrdenados[] = $consumoNoviembre;
-                
-                break;
-            
-            case 'Enero':
-
-                $mesesOrdenados[] = $consumoOctubre;
-                $mesesOrdenados[] = $consumoAgosto;
-                $mesesOrdenados[] = $consumoJunio;
-                $mesesOrdenados[] = $consumoAbril;
-                $mesesOrdenados[] = $consumoFebrero;
-                $mesesOrdenados[] = $consumoDiciembre;
-                
-            break;
-
-            case 'Febrero':
-
-                $mesesOrdenados[] = $consumoNoviembre;
-                $mesesOrdenados[] = $consumoSeptiembre;
-                $mesesOrdenados[] = $consumoJulio;
-                $mesesOrdenados[] = $consumoMayo;
-                $mesesOrdenados[] = $consumoMarzo;
-                $mesesOrdenados[] = $consumoEnero;
-                
-            break;
-
-            case 'Marzo':
-
-                $mesesOrdenados[] = $consumoDiciembre;
-                $mesesOrdenados[] = $consumoOctubre;
-                $mesesOrdenados[] = $consumoAgosto;
-                $mesesOrdenados[] = $consumoJunio;
-                $mesesOrdenados[] = $consumoAbril;
-                $mesesOrdenados[] = $consumoFebrero;
-                
-            break;
-
-            case 'Abril':
-
-                $mesesOrdenados[] = $consumoEnero;
-                $mesesOrdenados[] = $consumoNoviembre;
-                $mesesOrdenados[] = $consumoSeptiembre;
-                $mesesOrdenados[] = $consumoJulio;
-                $mesesOrdenados[] = $consumoMayo;
-                $mesesOrdenados[] = $consumoMarzo;
-                
-            break;
-            
-        }
-
-        return $mesesOrdenados;
-        
-    }
-
     
     /*
      *Metodo para obtener el total anual bimestral mas IVA
@@ -360,15 +292,15 @@
     /*
      *Metodo para obtener el total anual mas IVA
     */
-    function obtenerTotalAnualAnterior($consumoEnero, $consumoFebrero, $consumoMarzo, $consumoAbril, 
-    $consumoMayo, $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, $consumoOctubre, 
-    $consumoNoviembre, $consumoDiciembre){
+    function obtenerTotalAnualAnterior($proyeccionPrevia){
 
-    $total = ($consumoEnero['pago']*1.16)+($consumoFebrero['pago']*1.16)+($consumoMarzo['pago']*1.16)+
-    ($consumoAbril['pago']*1.16)+($consumoMayo['pago']*1.16)+($consumoJunio['pago']*1.16)+
-    ($consumoJulio['pago']*1.16)+($consumoAgosto['pago']*1.16)+($consumoSeptiembre['pago']*1.16)+
-    ($consumoOctubre['pago']*1.16)+($consumoNoviembre['pago']*1.16)+($consumoDiciembre['pago']*1.16);
+        $total = 0;
+        $proyeccionMensual = $proyeccionPrevia;
 
+        foreach ($proyeccionPrevia as $valor) {
+            
+            $total+=$valor['pago']*1.16;
+        }
 
     return $total;
     }
@@ -377,123 +309,177 @@
      * Metodo para ordenar los meses desglosados segun el ultimo periodo facturado
      * Retorna un arreglo de meses ordenados
      */
-    function ordenarConsumo($consumoEnero, $consumoFebrero, $consumoMarzo, $consumoAbril, $consumoMayo, 
-    $consumoJunio, $consumoJulio, $consumoAgosto, $consumoSeptiembre, $consumoOctubre, $consumoNoviembre, 
-    $consumoDiciembre, $ultimoMes, $frecuencia_pago){
+    function ordenarConsumo($proyeccionPrevia, $ultimoMes){
 
         $mesesOrdenados = array();
 
-        //En caso de que el periodo de facturacion sea mensual
-        if($frecuencia_pago == "Mensual"){
+        switch ($ultimoMes) {
 
-            switch ($ultimoMes) {
+            case 'Diciembre':
 
-                case 'Diciembre':
-
-                    $mesesOrdenados[] = $consumoEnero; $mesesOrdenados[] = $consumoFebrero; 
-                    $mesesOrdenados[] = $consumoMarzo; $mesesOrdenados[] = $consumoAbril; 
-                    $mesesOrdenados[] = $consumoMayo; $mesesOrdenados[] = $consumoJunio; 
-                    $mesesOrdenados[] = $consumoJulio; $mesesOrdenados[] = $consumoAgosto;
-                    $mesesOrdenados[] = $consumoSeptiembre; $mesesOrdenados[] = $consumoOctubre; 
-                    $mesesOrdenados[] = $consumoNoviembre; $mesesOrdenados[] = $consumoDiciembre; 
+                $mesesOrdenados[] = $proyeccionPrevia[0]; $mesesOrdenados[] = $proyeccionPrevia[1]; 
+                $mesesOrdenados[] = $proyeccionPrevia[2]; $mesesOrdenados[] = $proyeccionPrevia[3]; 
+                $mesesOrdenados[] = $proyeccionPrevia[4]; $mesesOrdenados[] = $proyeccionPrevia[5]; 
+                $mesesOrdenados[] = $proyeccionPrevia[6]; $mesesOrdenados[] = $proyeccionPrevia[7];
+                $mesesOrdenados[] = $proyeccionPrevia[8]; $mesesOrdenados[] = $proyeccionPrevia[9]; 
+                $mesesOrdenados[] = $proyeccionPrevia[10]; $mesesOrdenados[] = $proyeccionPrevia[11]; 
                 
-                    break;
+            break;
                 
-                case 'Enero':
+            case 'Enero':
 
-                    $mesesOrdenados[] = $consumoFebrero; $mesesOrdenados[] = $consumoMarzo; 
-                    $mesesOrdenados[] = $consumoAbril; $mesesOrdenados[] = $consumoMayo;
-                    $mesesOrdenados[] = $consumoJunio; $mesesOrdenados[] = $consumoJulio; 
-                    $mesesOrdenados[] = $consumoAgosto; $mesesOrdenados[] = $consumoSeptiembre; 
-                    $mesesOrdenados[] = $consumoOctubre; $mesesOrdenados[] = $consumoNoviembre; 
-                    $mesesOrdenados[] = $consumoDiciembre; $mesesOrdenados[] = $consumoEnero; 
+                $mesesOrdenados[] = $proyeccionPrevia[1]; $mesesOrdenados[] = $proyeccionPrevia[2]; 
+                $mesesOrdenados[] = $proyeccionPrevia[3]; $mesesOrdenados[] = $proyeccionPrevia[4];
+                $mesesOrdenados[] = $proyeccionPrevia[5]; $mesesOrdenados[] = $proyeccionPrevia[6]; 
+                $mesesOrdenados[] = $proyeccionPrevia[7]; $mesesOrdenados[] = $proyeccionPrevia[8]; 
+                $mesesOrdenados[] = $proyeccionPrevia[9]; $mesesOrdenados[] = $proyeccionPrevia[10]; 
+                $mesesOrdenados[] = $proyeccionPrevia[11]; $mesesOrdenados[] = $proyeccionPrevia[0]; 
 
-                    break;
+            break;
 
-                case 'Febrero':
+            case 'Febrero':
 
-                    $mesesOrdenados[] = $consumoMarzo; $mesesOrdenados[] = $consumoAbril; 
-                    $mesesOrdenados[] = $consumoMayo; $mesesOrdenados[] = $consumoJunio; 
-                    $mesesOrdenados[] = $consumoJulio; $mesesOrdenados[] = $consumoAgosto;
-                    $mesesOrdenados[] = $consumoSeptiembre; $mesesOrdenados[] = $consumoOctubre;
-                    $mesesOrdenados[] = $consumoNoviembre; $mesesOrdenados[] = $consumoDiciembre;
-                    $mesesOrdenados[] = $consumoEnero; $mesesOrdenados[] = $consumoFebrero; 
+                $mesesOrdenados[] = $proyeccionPrevia[2]; $mesesOrdenados[] = $proyeccionPrevia[3]; 
+                $mesesOrdenados[] = $proyeccionPrevia[4]; $mesesOrdenados[] = $proyeccionPrevia[5]; 
+                $mesesOrdenados[] = $proyeccionPrevia[6]; $mesesOrdenados[] = $proyeccionPrevia[7];
+                $mesesOrdenados[] = $proyeccionPrevia[8]; $mesesOrdenados[] = $proyeccionPrevia[9];
+                $mesesOrdenados[] = $proyeccionPrevia[10]; $mesesOrdenados[] = $proyeccionPrevia[11];
+                $mesesOrdenados[] = $proyeccionPrevia[0]; $mesesOrdenados[] = $proyeccionPrevia[1]; 
 
-                    break;
+            break;
 
-                case 'Marzo':
+            case 'Marzo':
 
-                    $mesesOrdenados[] = $consumoAbril; $mesesOrdenados[] = $consumoMayo; 
-                    $mesesOrdenados[] = $consumoJunio; $mesesOrdenados[] = $consumoJulio; 
-                    $mesesOrdenados[] = $consumoAgosto; $mesesOrdenados[] = $consumoSeptiembre; 
-                    $mesesOrdenados[] = $consumoOctubre; $mesesOrdenados[] = $consumoNoviembre; 
-                    $mesesOrdenados[] = $consumoDiciembre; $mesesOrdenados[] = $consumoEnero; 
-                    $mesesOrdenados[] = $consumoFebrero; $mesesOrdenados[] = $consumoMarzo; 
+                $mesesOrdenados[] = $proyeccionPrevia[3]; $mesesOrdenados[] = $proyeccionPrevia[4]; 
+                $mesesOrdenados[] = $proyeccionPrevia[5]; $mesesOrdenados[] = $proyeccionPrevia[6]; 
+                $mesesOrdenados[] = $proyeccionPrevia[7]; $mesesOrdenados[] = $proyeccionPrevia[8]; 
+                $mesesOrdenados[] = $proyeccionPrevia[9]; $mesesOrdenados[] = $proyeccionPrevia[10]; 
+                $mesesOrdenados[] = $proyeccionPrevia[11]; $mesesOrdenados[] = $proyeccionPrevia[0]; 
+                $mesesOrdenados[] = $proyeccionPrevia[1]; $mesesOrdenados[] = $proyeccionPrevia[2]; 
                     
-                    break;
+            break;
 
-                case 'Abril':
+            case 'Abril':
 
-                    $mesesOrdenados[] = $consumoMayo; $mesesOrdenados[] = $consumoJunio; 
-                    $mesesOrdenados[] = $consumoJulio; $mesesOrdenados[] = $consumoAgosto; 
-                    $mesesOrdenados[] = $consumoSeptiembre; $mesesOrdenados[] = $consumoOctubre; 
-                    $mesesOrdenados[] = $consumoNoviembre; $mesesOrdenados[] = $consumoDiciembre; 
-                    $mesesOrdenados[] = $consumoEnero; $mesesOrdenados[] = $consumoFebrero; 
-                    $mesesOrdenados[] = $consumoMarzo; $mesesOrdenados[] = $consumoAbril; 
+                $mesesOrdenados[] = $proyeccionPrevia[4]; $mesesOrdenados[] = $proyeccionPrevia[5]; 
+                $mesesOrdenados[] = $proyeccionPrevia[6]; $mesesOrdenados[] = $proyeccionPrevia[7]; 
+                $mesesOrdenados[] = $proyeccionPrevia[8]; $mesesOrdenados[] = $proyeccionPrevia[9]; 
+                $mesesOrdenados[] = $proyeccionPrevia[10]; $mesesOrdenados[] = $proyeccionPrevia[11]; 
+                $mesesOrdenados[] = $proyeccionPrevia[0]; $mesesOrdenados[] = $proyeccionPrevia[1]; 
+                $mesesOrdenados[] = $proyeccionPrevia[2]; $mesesOrdenados[] = $proyeccionPrevia[3]; 
 
-                    break;
+            break;
 
             }
 
-        //En caso de que el periodo de facturacion sea Bimestral
+
+        return $mesesOrdenados;
+
+    }
+
+    function asignarIndiceFuturo($consumoPosterior, $frecuencia){
+
+        if ($frecuencia=="Mensual") {
+            $consumoFuturo = array(
+                "mes1" => $consumoPosterior[0], "mes2" => $consumoPosterior[1], 
+                "mes3" => $consumoPosterior[2], "mes4" => $consumoPosterior[3], 
+                "mes5" => $consumoPosterior[4], "mes6" => $consumoPosterior[5], 
+                "mes7" => $consumoPosterior[6], "mes8" => $consumoPosterior[7], 
+                "mes9" => $consumoPosterior[8], "mes10" => $consumoPosterior[9], 
+                "mes11" => $consumoPosterior[10], "mes12" => $consumoPosterior[11], 
+            );
         }else{
+            $consumoFuturo = array(
+                "mes1" => $consumoPosterior[0], "mes2" => $consumoPosterior[1], 
+                "mes3" => $consumoPosterior[2], "mes4" => $consumoPosterior[3], 
+                "mes5" => $consumoPosterior[4], "mes6" => $consumoPosterior[5] 
+            );
 
-            switch ($ultimoMes) {
+        }
+        
 
-                case 'Diciembre':
+        return $consumoFuturo;
+    }
 
-                    $mesesOrdenados[] = $consumoSeptiembre; $mesesOrdenados[] = $consumoJulio; 
-                    $mesesOrdenados[] = $consumoMayo; $mesesOrdenados[] = $consumoMarzo; 
-                    $mesesOrdenados[] = $consumoEnero; $mesesOrdenados[] = $consumoNoviembre; 
-                    
-                    break;
+
+    function limitarMesesPrevios($consumoMensual, $mes){
+
+        $mesesOrdenados = array();
+
+        switch ($mes) {
+
+            case 'Diciembre':
+
+                $mesesOrdenados[] = $consumoMensual[8];
+                $mesesOrdenados[] = $consumoMensual[6];
+                $mesesOrdenados[] = $consumoMensual[4];
+                $mesesOrdenados[] = $consumoMensual[2];
+                $mesesOrdenados[] = $consumoMensual[0];
+                $mesesOrdenados[] = $consumoMensual[10];
                 
-                case 'Enero':
+                break;
 
-                    $mesesOrdenados[] = $consumoOctubre; $mesesOrdenados[] = $consumoAgosto; 
-                    $mesesOrdenados[] = $consumoJunio; $mesesOrdenados[] = $consumoAbril; 
-                    $mesesOrdenados[] = $consumoFebrero; $mesesOrdenados[] = $consumoDiciembre; 
-                    
-                    break;
+            case 'Enero':
 
-                case 'Febrero':
-
-                    $mesesOrdenados[] = $consumoNoviembre; $mesesOrdenados[] = $consumoSeptiembre; 
-                    $mesesOrdenados[] = $consumoJulio; $mesesOrdenados[] = $consumoMayo; 
-                    $mesesOrdenados[] = $consumoMarzo; $mesesOrdenados[] = $consumoEnero; 
-                    
-                    break;
+                $mesesOrdenados[] = $consumoMensual[9];
+                $mesesOrdenados[] = $consumoMensual[7];
+                $mesesOrdenados[] = $consumoMensual[5];
+                $mesesOrdenados[] = $consumoMensual[3];
+                $mesesOrdenados[] = $consumoMensual[1];
+                $mesesOrdenados[] = $consumoMensual[11];
                 
-                case 'Marzo':
+                break;
 
-                    $mesesOrdenados[] = $consumoDiciembre; $mesesOrdenados[] = $consumoOctubre; 
-                    $mesesOrdenados[] = $consumoAgosto; $mesesOrdenados[] = $consumoJunio; 
-                    $mesesOrdenados[] = $consumoAbril; $mesesOrdenados[] = $consumoFebrero; 
-                     
-                    break;
+            case 'Febrero':
 
-                case 'Abril':
+                $mesesOrdenados[] = $consumoMensual[10];
+                $mesesOrdenados[] = $consumoMensual[8];
+                $mesesOrdenados[] = $consumoMensual[6];
+                $mesesOrdenados[] = $consumoMensual[4];
+                $mesesOrdenados[] = $consumoMensual[2];
+                $mesesOrdenados[] = $consumoMensual[0];
+            
+                break;
 
-                    $mesesOrdenados[] = $consumoEnero; $mesesOrdenados[] = $consumoNoviembre; 
-                    $mesesOrdenados[] = $consumoSeptiembre; $mesesOrdenados[] = $consumoJulio; 
-                    $mesesOrdenados[] = $consumoMayo; $mesesOrdenados[] = $consumoMarzo;
-                    
-                    break;
-            }
+            case 'Marzo':
 
+                $mesesOrdenados[] = $consumoMensual[11];
+                $mesesOrdenados[] = $consumoMensual[9];
+                $mesesOrdenados[] = $consumoMensual[7];
+                $mesesOrdenados[] = $consumoMensual[5];
+                $mesesOrdenados[] = $consumoMensual[3];
+                $mesesOrdenados[] = $consumoMensual[1];
+                
+                break;
+
+            case 'Abril':
+
+                $mesesOrdenados[] = $consumoMensual[0];
+                $mesesOrdenados[] = $consumoMensual[10];
+                $mesesOrdenados[] = $consumoMensual[8];
+                $mesesOrdenados[] = $consumoMensual[6];
+                $mesesOrdenados[] = $consumoMensual[4];
+                $mesesOrdenados[] = $consumoMensual[2];
+                
+                break;
+            
+            
         }
 
         return $mesesOrdenados;
+    }
+
+    function consumoAnual($consumoAnual){
+
+        $consumo = 0;
+
+        foreach ($consumoAnual as $valor) {
+            
+            $consumo+=$valor;
+
+        }
+
+        return $consumo;
 
     }
 

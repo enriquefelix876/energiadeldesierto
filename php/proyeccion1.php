@@ -2,21 +2,10 @@
 
     require_once('./cotizacion.php');
 	require_once('funciones.php');
-	
-	//Variables globales
-	$titular= $_POST['titular'];
-	$estado = $_POST['estado'];
-	$municipio = $_POST['municipio'];
-    $frecuencia_pago = $_POST['frecuencia_pago'];
-	$tarifa = $_POST['tarifa'];
-	$servicio = $_POST['servicio'];
-	$mes = $_POST['mes'];
-	
-	$consumoPorMes = array("mes1" => $_POST['mes1'],"mes2" => $_POST['mes2'],"mes3" => $_POST['mes3'],
-	    "mes4" => $_POST['mes4'],"mes5" => $_POST['mes5'],"mes6" => $_POST['mes6'],"mes7" => $_POST['mes7'],
-	    "mes8" => $_POST['mes8'],"mes9" => $_POST['mes9'],"mes10" => $_POST['mes10'],"mes11" => $_POST['mes11'],
-	    "mes12" => $_POST['mes12']
-    );
+
+function generarProyeccion1($consumoPorMes){
+
+    global $mes;
     
     $consumoEnero = array(
 
@@ -304,5 +293,24 @@
 
 
     }
+
+    $consumoMensual = array();
+
+    $consumoMensual[] = $consumoEnero;
+    $consumoMensual[] = $consumoFebrero;
+    $consumoMensual[] = $consumoMarzo;
+    $consumoMensual[] = $consumoAbril;
+    $consumoMensual[] = $consumoMayo;
+    $consumoMensual[] = $consumoJunio;
+    $consumoMensual[] = $consumoJulio;
+    $consumoMensual[] = $consumoAgosto;
+    $consumoMensual[] = $consumoSeptiembre;
+    $consumoMensual[] = $consumoOctubre;
+    $consumoMensual[] = $consumoNoviembre;
+    $consumoMensual[] = $consumoDiciembre;
+
+    return $consumoMensual;
+}
+
 
 ?>
