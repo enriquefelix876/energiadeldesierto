@@ -1,4 +1,6 @@
 <?php 
+
+    require_once('./cotizacion.php');
     /*
     ---Metodo para obtener el pago mensual en Invierno---
     $consumoKWH = El total de KWH consumidos a lo largo del mes
@@ -14,10 +16,19 @@
     function desgloseConsumoPorMesInvierno($consumoKWH, $rangoBasico, $rangoIntermedio, 
     $kwhBasico, $kwhIntermedio, $kwhExcedente){
 
+        global $frecuencia;
+
+        //Factor de multiplicacion a partir de la frecuencia de pago
+        $factor = 1;
+
+        if ($frecuencia=="Bimestral") {
+            $factor = 2;
+        }
+
         //Se establece el consumo minimo en 25 kWh
         if($consumoKWH<25){
 
-            $consumoKWH = 25;
+            $consumoKWH = 25*$factor;
         }
 
         $desglosePorMes = array(
@@ -88,10 +99,18 @@
     $rangoIntermedioAlto, $kwhBasico, $kwhIntermedioBajo, 
     $kwhIntermedioAlto, $kwhExcedente){
 
+        global $frecuencia;
+
+        $factor = 1;
+
+        if ($frecuencia=="Bimestral") {
+            $factor = 2;
+        }
+
         //Se establece el consumo minimo en 25 kWh
         if($consumoKWH<25){
 
-            $consumoKWH = 25;
+            $consumoKWH = 25*$factor;
         }
 
         $desglosePorMes = array(
@@ -483,4 +502,453 @@
 
     }
 
+    /**
+     * Metodo para obtener el consumo por mes promedio dados los consumos mensuales de un año y la frencuencia
+     * de pago
+     * 
+     */
+    function obtenerPromedioMensual($consumoPorMes, $frecuencia){
+
+        $promedioMensual = 0;
+
+        //En caso de que el periodo de facturado sea Mensual
+        if ($frecuencia == "Mensual") {
+
+            $promedioMensual = $consumoPorMes["mes1"]+$consumoPorMes["mes2"]+$consumoPorMes["mes3"]+
+            $consumoPorMes["mes4"]+$consumoPorMes["mes5"]+$consumoPorMes["mes6"]+$consumoPorMes["mes7"]+
+            $consumoPorMes["mes8"]+$consumoPorMes["mes9"]+$consumoPorMes["mes10"]+$consumoPorMes["mes11"]+
+            $consumoPorMes["mes12"];
+
+            $promedioMensual/=12;
+            
+        //En caso de que el periodo de facturado sea Bimestral
+        }elseif($frecuencia == "Bimestral"){
+
+            $promedioMensual = $consumoPorMes["mes1"]+$consumoPorMes["mes2"]+$consumoPorMes["mes3"]+
+            $consumoPorMes["mes4"]+$consumoPorMes["mes5"]+$consumoPorMes["mes6"];
+
+            $promedioMensual/=6;
+
+        }
+
+        return $promedioMensual;
+
+    }
+    
+    /**
+     * Metodo para obtener el tipo de consumo de factura, ya sea Normal o de alto consumo
+     * Esto a partir del consumo promedio mensual y el limite de consumo promedio de cada tarifa
+     */
+    function obtenerTipoConsumo($promedioMensual, $tarifa){
+
+        $DAC = false;
+
+        switch ($tarifa) {
+
+            case '1':
+
+                if($promedioMensual>250){
+
+                    $DAC = true;
+                }
+
+                break;
+
+            case '1A':
+
+                if($promedioMensual>300){
+
+                    $DAC = true;
+                }
+
+                break;
+
+            case '1B':
+
+                if($promedioMensual>400){
+
+                    $DAC = true;
+                }
+
+                break;
+
+            case '1C':
+
+                if($promedioMensual>850){
+
+                    $DAC = true;
+                }
+
+                break;
+
+            case '1D':
+
+                if($promedioMensual>1000){
+
+                    $DAC = true;
+                }
+
+                break;
+
+            case '1E':
+
+                if($promedioMensual>2000){
+
+                    $DAC = true;
+                }
+
+                break;
+
+            case '1F':
+
+                if($promedioMensual>2500){
+
+                    $DAC = true;
+                }
+
+                break;
+            
+            default:
+
+                break;
+        }
+
+        return $DAC;
+    }
+
+    /**
+     * Metodo para obtener el limite del promedio de consumo mensual establecido para cada tarifa
+     */
+    function obtenerLimiteDac($tarifa){
+
+        switch ($tarifa) {
+
+            case '1':
+                
+                return 250;
+
+            break;
+
+            case '1A':
+                
+                return 300;
+
+            break;
+
+            case '1B':
+                
+                return 400;
+
+            break;
+
+            case '1C':
+                
+                return 850;
+
+            break;
+
+            case '1D':
+                
+                return 1000;
+
+            break;
+
+            case '1E':
+                
+                return 2000;
+
+            break;
+
+            case '1F':
+                
+                return 2500;
+
+            break;
+            
+            default:
+
+            break;
+        }
+    }
+
+    /**
+     * Metodo para obtener una region a partir de un estado dado previamente
+     */
+    function obtenerRegion($estado){
+
+        switch ($estado) {
+
+            case 'Sonora':
+                
+                return "Noroeste";
+                break;
+
+            case 'Sinaloa':
+                return "Noroeste";
+                break;
+                
+                return "Noroeste";
+                break;
+
+            case 'Baja California':
+                
+                return "Noroeste";
+                break;
+
+            case 'Baja California Sur':
+                
+                return "Noroeste";
+                break;
+            
+            default:
+
+                break;
+        }
+    }
+
+    /**
+     * Metodo para obtener los cargos por consumo DAC a partir de una region dada
+     */
+    function generarCargosPorKWH($region, $estado){
+
+        $cargosPorKWH = array();
+
+        switch ($region) {
+
+            case 'Central':
+                
+                break;
+
+            case 'Noroeste':
+
+                if($estado == "Baja California"){
+
+                    //Enero 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.366; $cargosPorKWH[] = 3.750;
+
+                    //Febrero 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.431; $cargosPorKWH[] = 3.806;
+
+                    //Marzo 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.605; $cargosPorKWH[] = 3.955;
+
+                    //Abril 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.412; $cargosPorKWH[] = 3.789;
+
+                    //Mayo 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.410; $cargosPorKWH[] = 3.787;
+
+                    //Junio 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.643; $cargosPorKWH[] = 3.987;
+
+                    //Julio 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.752; $cargosPorKWH[] = 4.080;
+
+                    //Agosto 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.783; $cargosPorKWH[] = 4.107;
+
+                    //Septiembre 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.618; $cargosPorKWH[] = 3.956;
+
+                    //Octubre 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.674; $cargosPorKWH[] = 4.013;
+
+                    //Noviembre 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.814; $cargosPorKWH[] = 4.133;
+
+                    //Diciembre 2018  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.899; $cargosPorKWH[] = 4.206;
+
+                    //Enero 2019  //Verano  //Invierno
+                    $cargosPorKWH[] = 5.316; $cargosPorKWH[] = 4.564;
+
+                    //Febrero 2019  //Verano  //Invierno
+                    $cargosPorKWH[] = 5.081; $cargosPorKWH[] = 4.362;
+
+                    //Marzo 2019  //Verano  //Invierno
+                    $cargosPorKWH[] = 4.848; $cargosPorKWH[] = 4.162;
+
+                }elseif ($estado == "Baja California Sur") {
+                }else{
+                //Cargos 2018
+                $cargosPorKWH[] = 4.206; $cargosPorKWH[] = 4.269; $cargosPorKWH[] = 4.436; $cargosPorKWH[] = 4.250;
+                $cargosPorKWH[] = 4.248; $cargosPorKWH[] = 4.472; $cargosPorKWH[] = 4.577; $cargosPorKWH[] = 4.607;
+                $cargosPorKWH[] = 4.488; $cargosPorKWH[] = 4.502; $cargosPorKWH[] = 4.637; $cargosPorKWH[] = 4.719;
+
+                //Cargos 2019
+                $cargosPorKWH[] = 5.121; $cargosPorKWH[] = 4.894; $cargosPorKWH[] = 4.669; $cargosPorKWH[] = 4.250;
+                }
+                break;
+
+            case 'Norte':
+                
+                break;
+
+            case 'Noreste':
+                
+                break;
+
+            case 'Sur':
+                
+                break;
+
+            case 'Peninsular':
+                
+                break;
+            
+            default:
+                
+                break;
+
+        }
+
+        return $cargosPorKWH;
+    }
+
+    function desgloseConsumoDacNormal($consumoKWH, $cargoFijo, $cargoPorKWH){
+
+        global $frecuencia;
+
+        $factor = 1;
+
+        if ($frecuencia=="Bimestral") {
+            $factor = 2;
+        }
+
+        //Se establece el consumo minimo en 25 kWh
+        if($consumoKWH<25){
+
+            $consumoKWH = 25*$factor;
+        }
+
+        $desglosePorMes = array(
+
+            "basico" => 0,
+            "intermedioBajo" => 0,
+            "intermedioAlto" => 0,
+            "excedente" => 0,
+            "pago" => 0
+        );
+
+        $pagoMensual = $cargoFijo*$factor;
+
+
+        //Si el consumo del mes rebasa el consumo minimo
+        if($consumoKWH>25*$factor){
+            $desglosePorMes['basico'] = 0;
+            $desglosePorMes['excedente'] = $consumoKWH;
+     
+            $consumoExcedente = $consumoKWH*$cargoPorKWH;
+            $pagoMensual+=$consumoExcedente;
+
+        //Si el consumo del mes no rebasa el consumo minimo
+        }else{
+
+            $desglosePorMes['basico'] = 25*$factor;
+            $desglosePorMes['excedente'] = 0;
+
+
+        }
+
+        $desglosePorMes['pago'] = $pagoMensual;
+        return $desglosePorMes;
+    }
+
+    function desgloseConsumoDacBC(){
+        
+    }
+
+    function obtenerTipoConsumoFuturo($consumoPosterior, $frecuencia, $tarifa){
+
+        $acumuladoAnual = 0;
+        $DAC = false;
+
+        foreach ($consumoPosterior as $valor) {
+            
+            $acumuladoAnual+=$valor;
+        }
+
+        $divisor = 12;
+
+        if ($frecuencia == "Bimestral") {
+
+            $divisor/=2;
+            
+        }
+
+        $promedio = $acumuladoAnual/$divisor;
+
+        switch ($tarifa) {
+
+            case '1':
+                
+                if ($promedio>250) {
+                    
+                    $DAC = true;
+                }
+
+            break;
+
+            case '1A':
+                
+                if ($promedio>300) {
+                        
+                    $DAC = true;
+                }
+
+            break;
+
+            case '1B':
+                
+                if ($promedio>400) {
+                        
+                    $DAC = true;
+                }
+
+            break;
+
+            case '1C':
+                
+                if ($promedio>850) {
+                        
+                    $DAC = true;
+                }
+
+            break;
+
+            case '1D':
+                
+                if ($promedio>1000) {
+                        
+                    $DAC = true;
+                }
+
+            break;
+
+            case '1E':
+                
+                if ($promedio>2000) {
+                        
+                    $DAC = true;
+                }
+
+            break;
+
+            case '1F':
+                
+                if ($promedio>2500) {
+                        
+                    $DAC = true;
+                }
+
+            break;
+            
+            default:
+
+            break;
+        }
+
+        return $DAC;
+
+    }
 ?>

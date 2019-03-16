@@ -26,10 +26,15 @@
     
     require_once('php/funciones.php');
 
+    $promedioMensual = obtenerPromedioMensual($consumoPorMes, $frecuencia);
+    $DAC = obtenerTipoConsumo($promedioMensual, $tarifa);
+    $limiteDAC = obtenerLimiteDAC($tarifa);
+
     switch ($_POST['tarifa']) {
         
         case '1':
         
+        if(!$DAC){
             if($frecuencia=="Mensual"){
 
                 require_once('php/proyeccion1.php');
@@ -40,6 +45,20 @@
                 $proyeccionPrevia = generarProyeccion1Bimestral($consumoPorMes);
 
             }
+
+        }else{
+            if($frecuencia=="Mensual"){
+
+                require_once('php/proyeccionDAC.php');
+                $proyeccionPrevia = generarProyeccionDAC($consumoPorMes, $limiteDAC);
+
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestralDACBimestral.php');
+                $proyeccionPrevia = generarProyeccionDACBimestral($consumoPorMes, $limiteDAC);
+
+            }
+
+        }
 
             break;
         
@@ -170,6 +189,8 @@
 
     $consumoPosterior = consumoFuturo($consumoPorMes, $produccionMensual, $frecuencia);
 
+    $DAC_Futuro = obtenerTipoConsumoFuturo($consumoPosterior, $frecuencia, $tarifa);
+
     //Asignar indice a consumo Futuro
     $consumoFuturo = asignarIndiceFuturo($consumoPosterior, $frecuencia);
 
@@ -189,12 +210,31 @@
     switch ($_POST['tarifa']) {
         
         case '1':
-            if($frecuencia=="Mensual"){
-                require_once('php/proyeccion1.php');
-                $proyeccionFutura = generarProyeccion1($consumoFuturo, $frecuencia);
-            }elseif ($frecuencia=="Bimestral") {
-                require_once('php/proyeccionBimestral1.php');
-                $proyeccionFutura = generarProyeccion1Bimestral($consumoFuturo, $frecuencia);
+
+            if(!$DAC_Futuro){
+                if($frecuencia=="Mensual"){
+    
+                    require_once('php/proyeccion1.php');
+                    $proyeccionFutura = generarProyeccion1($consumoFuturo);
+    
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestral1.php');
+                    $proyeccionFutura = generarProyeccion1Bimestral($consumoFuturo);
+    
+                }
+    
+            }else{
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccionDAC.php');
+                    $proyeccionFutura = generarProyeccionDAC($consumoFuturo, $limiteDAC);
+    
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestralDACBimestral.php');
+                    $proyeccionFutura = generarProyeccionDACBimestral($consumoFuturo, $limiteDAC);
+    
+                }
+    
             }
             break;
         
@@ -323,6 +363,8 @@
                     <span class="font-weight-bold">Frecuencia de pago: <?php echo $frecuencia ?></span><br>
                     <?php echo $municipio.", ".$estado ?><br>
                     <span class="font-weight-bold">TARIFA:</span><?php echo " ". $tarifa ?><br>
+                    <span class="font-weight-bold">TARIFA </span><?php if($DAC){ echo "DAC";} else{ echo "Normal"; } echo " a " ?>
+                    <span class="font-weight-bold">TARIFA </span><?php if($DAC_Futuro){ echo "DAC";} else{ echo "Normal"; } ?><br>
                 </div>
                 <div class="col-md-4 border datos rounded">
                     <span class="font-weight-bold">Capacidad:</span><?php echo " ". $capacidad . " kW" ?><br>
