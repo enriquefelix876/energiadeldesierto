@@ -60,69 +60,135 @@
 
         }
 
-            break;
+        break;
         
         case '1A':
             
-            if($frecuencia=="Mensual"){
+            if(!$DAC){
 
-                require_once('php/proyeccion1A.php');
-                $proyeccionPrevia = generarProyeccion1A($consumoPorMes);
+                if($frecuencia=="Mensual"){
 
-            }elseif ($frecuencia=="Bimestral") {
-                require_once('php/proyeccionBimestral1A.php');
-                $proyeccionPrevia = generarProyeccion1ABimestral($consumoPorMes);
+                    require_once('php/proyeccion1A.php');
+                    $proyeccionPrevia = generarProyeccion1A($consumoPorMes);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestral1A.php');
+                    $proyeccionPrevia = generarProyeccion1ABimestral($consumoPorMes);
+
+                }
+
+            }else{
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccionDAC.php');
+                    $proyeccionPrevia = generarProyeccionDAC($consumoPorMes, $limiteDAC);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestralDACBimestral.php');
+                    $proyeccionPrevia = generarProyeccionDACBimestral($consumoPorMes, $limiteDAC);
+
+                }
 
             }
 
-            break;
+        break;
         
         case '1B':
         
-        if($frecuencia=="Mensual"){
+            if(!$DAC){
 
-            require_once('php/proyeccion1B.php');
-            $proyeccionPrevia = generarProyeccion1B($consumoPorMes);
+                if($frecuencia=="Mensual"){
 
-        }elseif ($frecuencia=="Bimestral") {
-            require_once('php/proyeccionBimestral1B.php');
-            $proyeccionPrevia = generarProyeccion1BBimestral($consumoPorMes);
+                    require_once('php/proyeccion1B.php');
+                    $proyeccionPrevia = generarProyeccion1B($consumoPorMes);
 
-        }
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestral1B.php');
+                    $proyeccionPrevia = generarProyeccion1BBimestral($consumoPorMes);
 
-            break;
+                }
+
+            }else{
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccionDAC.php');
+                    $proyeccionPrevia = generarProyeccionDAC($consumoPorMes, $limiteDAC);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestralDACBimestral.php');
+                    $proyeccionPrevia = generarProyeccionDACBimestral($consumoPorMes, $limiteDAC);
+
+                }
+
+            }
+
+        break;
         
         case '1C':
             
-            if($frecuencia=="Mensual"){
+            if(!$DAC){
 
-            require_once('php/proyeccion1C.php');
-            $proyeccionPrevia = generarProyeccion1C($consumoPorMes);
+                if($frecuencia=="Mensual"){
 
-            }elseif ($frecuencia=="Bimestral") {
-                require_once('php/proyeccionBimestral1C.php');
-                $proyeccionPrevia = generarProyeccion1CBimestral($consumoPorMes);
+                    require_once('php/proyeccion1C.php');
+                    $proyeccionPrevia = generarProyeccion1C($consumoPorMes);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestral1C.php');
+                    $proyeccionPrevia = generarProyeccion1CBimestral($consumoPorMes);
+
+                }
+
+            }else{
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccionDAC.php');
+                    $proyeccionPrevia = generarProyeccionDAC($consumoPorMes, $limiteDAC);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestralDACBimestral.php');
+                    $proyeccionPrevia = generarProyeccionDACBimestral($consumoPorMes, $limiteDAC);
+
+                }
 
             }
 
-            break;
+        break;
         
         case '1D':
             
-            if($frecuencia=="Mensual"){
+            if(!$DAC){
 
-            require_once('php/proyeccion1D.php');
-            $proyeccionPrevia = generarProyeccion1D($consumoPorMes);
+                if($frecuencia=="Mensual"){
 
-            }elseif ($frecuencia=="Bimestral") {
-                require_once('php/proyeccionBimestral1D.php');
-                $proyeccionPrevia = generarProyeccion1DBimestral($consumoPorMes);
+                    require_once('php/proyeccion1D.php');
+                    $proyeccionPrevia = generarProyeccion1D($consumoPorMes);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestral1D.php');
+                    $proyeccionPrevia = generarProyeccion1DBimestral($consumoPorMes);
+
+                }
+
+            }else{
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccionDAC.php');
+                    $proyeccionPrevia = generarProyeccionDAC($consumoPorMes, $limiteDAC);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestralDACBimestral.php');
+                    $proyeccionPrevia = generarProyeccionDACBimestral($consumoPorMes, $limiteDAC);
+
+                }
 
             }
 
-            break;
+        break;
         
         case '1E':
+
+        if(!$DAC){
 
             if($frecuencia=="Mensual"){
 
@@ -135,14 +201,30 @@
 
             }
 
-            break;
+        }else{
+            if($frecuencia=="Mensual"){
+
+                require_once('php/proyeccionDAC.php');
+                $proyeccionPrevia = generarProyeccionDAC($consumoPorMes, $limiteDAC);
+
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestralDACBimestral.php');
+                $proyeccionPrevia = generarProyeccionDACBimestral($consumoPorMes, $limiteDAC);
+
+            }
+
+        }
+
+        break;
         
         case '1F':
             
+        if(!$DAC){
+
             if($frecuencia=="Mensual"){
 
-            require_once('php/proyeccion1F.php');
-            $proyeccionPrevia = generarProyeccion1F($consumoPorMes);
+                require_once('php/proyeccion1F.php');
+                $proyeccionPrevia = generarProyeccion1F($consumoPorMes);
 
             }elseif ($frecuencia=="Bimestral") {
                 require_once('php/proyeccionBimestral1F.php');
@@ -150,7 +232,21 @@
 
             }
 
-            break;
+        }else{
+            if($frecuencia=="Mensual"){
+
+                require_once('php/proyeccionDAC.php');
+                $proyeccionPrevia = generarProyeccionDAC($consumoPorMes, $limiteDAC);
+
+            }elseif ($frecuencia=="Bimestral") {
+                require_once('php/proyeccionBimestralDACBimestral.php');
+                $proyeccionPrevia = generarProyeccionDACBimestral($consumoPorMes, $limiteDAC);
+
+            }
+
+        }
+
+    break;
         
         default:
         
@@ -240,68 +336,187 @@
         
         case '1A':
 
-            if($frecuencia=="Mensual"){
-                require_once('php/proyeccion1A.php');
-                $proyeccionFutura = generarProyeccion1A($consumoFuturo, $frecuencia);
-            }elseif ($frecuencia=="Bimestral") {
-                require_once('php/proyeccionBimestral1A.php');
-                $proyeccionFutura = generarProyeccion1ABimestral($consumoFuturo, $frecuencia);
+            if(!$DAC_Futuro){
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccion1A.php');
+                    $proyeccionFutura = generarProyeccion1A($consumoFuturo);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestral1A.php');
+                    $proyeccionFutura = generarProyeccion1ABimestral($consumoFuturo);
+
+                }
+
+            }else{
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccionDAC.php');
+                    $proyeccionFutura = generarProyeccionDAC($consumoFuturo, $limiteDAC);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestralDACBimestral.php');
+                    $proyeccionFutura = generarProyeccionDACBimestral($consumoFuturo, $limiteDAC);
+
+                }
+
             }
             break;
         
         case '1B':
         
-            if($frecuencia=="Mensual"){
-                require_once('php/proyeccion1B.php');
-                $proyeccionFutura = generarProyeccion1B($consumoFuturo, $frecuencia);
-            }elseif ($frecuencia=="Bimestral") {
-                require_once('php/proyeccionBimestral1B.php');
-                $proyeccionFutura = generarProyeccion1BBimestral($consumoFuturo, $frecuencia);
-            }
-            break;
+            if(!$DAC_Futuro){
+
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccion1B.php');
+                    $proyeccionFutura = generarProyeccion1B($consumoFuturo);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestral1B.php');
+                    $proyeccionFutura = generarProyeccion1BBimestral($consumoFuturo);
+
+                }
+
+            }else{
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccionDAC.php');
+                    $proyeccionFutura = generarProyeccionDAC($consumoFuturo, $limiteDAC);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestralDACBimestral.php');
+                    $proyeccionFutura = generarProyeccionDACBimestral($consumoFuturo, $limiteDAC);
+
+                    }
+
+                }
+
+        break;
         
         case '1C':
 
-            if($frecuencia=="Mensual"){
-                require_once('php/proyeccion1C.php');
-                $proyeccionFutura = generarProyeccion1C($consumoFuturo, $frecuencia);
-            }elseif ($frecuencia=="Bimestral") {
-                require_once('php/proyeccionBimestral1C.php');
-                $proyeccionFutura = generarProyeccion1CBimestral($consumoFuturo, $frecuencia);
-            }
-            break;
+            if(!$DAC_Futuro){
+
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccion1C.php');
+                    $proyeccionFutura = generarProyeccion1C($consumoFuturo);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestral1C.php');
+                    $proyeccionFutura = generarProyeccion1CBimestral($consumoFuturo);
+
+                }
+
+            }else{
+                    if($frecuencia=="Mensual"){
+
+                        require_once('php/proyeccionDAC.php');
+                        $proyeccionFutura = generarProyeccionDAC($consumoFuturo, $limiteDAC);
+
+                    }elseif ($frecuencia=="Bimestral") {
+                        require_once('php/proyeccionBimestralDACBimestral.php');
+                        $proyeccionFutura = generarProyeccionDACBimestral($consumoFuturo, $limiteDAC);
+
+                    }
+
+                }
+
+        break;
         
         case '1D':
 
-            if($frecuencia=="Mensual"){
-                require_once('php/proyeccion1D.php');
-                $proyeccionFutura = generarProyeccion1D($consumoFuturo, $frecuencia);
-            }elseif ($frecuencia=="Bimestral") {
-                require_once('php/proyeccionBimestral1D.php');
-                $proyeccionFutura = generarProyeccion1DBimestral($consumoFuturo, $frecuencia);
-            }
-            break;
+            if(!$DAC_Futuro){
+
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccion1D.php');
+                    $proyeccionFutura = generarProyeccion1D($consumoFuturo);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestral1D.php');
+                    $proyeccionFutura = generarProyeccion1DBimestral($consumoFuturo);
+
+                }
+
+            }else{
+                    if($frecuencia=="Mensual"){
+
+                        require_once('php/proyeccionDAC.php');
+                        $proyeccionFutura = generarProyeccionDAC($consumoFuturo, $limiteDAC);
+
+                    }elseif ($frecuencia=="Bimestral") {
+                        require_once('php/proyeccionBimestralDACBimestral.php');
+                        $proyeccionFutura = generarProyeccionDACBimestral($consumoFuturo, $limiteDAC);
+
+                    }
+
+                }
+
+        break;
         
         case '1E':
-            if($frecuencia=="Mensual"){
-                require_once('php/proyeccion1E.php');
-                $proyeccionFutura = generarProyeccion1E($consumoFuturo);
-            }elseif ($frecuencia=="Bimestral") {
-                require_once('php/proyeccionBimestral1E.php');
-                $proyeccionFutura = generarProyeccion1EBimestral($consumoFuturo);
-            }
-            break;
+            
+            if(!$DAC_Futuro){
+
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccion1E.php');
+                    $proyeccionFutura = generarProyeccion1E($consumoFuturo);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestral1E.php');
+                    $proyeccionFutura = generarProyeccion1EBimestral($consumoFuturo);
+
+                }
+
+            }else{
+                    if($frecuencia=="Mensual"){
+
+                        require_once('php/proyeccionDAC.php');
+                        $proyeccionFutura = generarProyeccionDAC($consumoFuturo, $limiteDAC);
+
+                    }elseif ($frecuencia=="Bimestral") {
+                        require_once('php/proyeccionBimestralDACBimestral.php');
+                        $proyeccionFutura = generarProyeccionDACBimestral($consumoFuturo, $limiteDAC);
+
+                    }
+
+                }
+
+        break;
         
         case '1F':
             
-            if($frecuencia=="Mensual"){
-                require_once('php/proyeccion1F.php');
-                $proyeccionFutura = generarProyeccion1F($consumoFuturo, $frecuencia);
-            }elseif ($frecuencia=="Bimestral") {
-                require_once('php/proyeccionBimestral1F.php');
-                $proyeccionFutura = generarProyeccion1FBimestral($consumoFuturo, $frecuencia);
-            }
-            break;
+            if(!$DAC_Futuro){
+
+                if($frecuencia=="Mensual"){
+
+                    require_once('php/proyeccion1F.php');
+                    $proyeccionFutura = generarProyeccion1F($consumoFuturo);
+
+                }elseif ($frecuencia=="Bimestral") {
+                    require_once('php/proyeccionBimestral1F.php');
+                    $proyeccionFutura = generarProyeccion1FBimestral($consumoFuturo);
+
+                }
+
+            }else{
+                    if($frecuencia=="Mensual"){
+
+                        require_once('php/proyeccionDAC.php');
+                        $proyeccionFutura = generarProyeccionDAC($consumoFuturo, $limiteDAC);
+
+                    }elseif ($frecuencia=="Bimestral") {
+                        require_once('php/proyeccionBimestralDACBimestral.php');
+                        $proyeccionFutura = generarProyeccionDACBimestral($consumoFuturo, $limiteDAC);
+
+                    }
+
+                }
+
+        break;
         
         default:
             break;
